@@ -3,6 +3,8 @@ import './Tzfe.css';
 
 const Tzfe = () => {
     const [board, setBoard] = useState(createBoard());
+    let touchStartX = 0;
+    let touchStartY = 0;
 
     function createBoard() {
         const initialBoard = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
@@ -41,10 +43,50 @@ const Tzfe = () => {
         }
     };
 
+    const handleTouchStart = (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+    };
+
+    const handleTouchEnd = (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            // Horizontal swipe
+            if (deltaX > 50) {
+                handleKeyPress({ key: 'ArrowRight' });
+            } else if (deltaX < -50) {
+                handleKeyPress({ key: 'ArrowLeft' });
+            }
+        } else {
+            // Vertical swipe
+            if (deltaY > 50) {
+                handleKeyPress({ key: 'ArrowDown' });
+            } else if (deltaY < -50) {
+                handleKeyPress({ key: 'ArrowUp' });
+            }
+        }
+    };
+
     useEffect(() => {
         window.addEventListener('keydown', handleKeyPress);
+        window.addEventListener('touchstart', handleTouchStart);
+        window.addEventListener('touchend', handleTouchEnd);
+        const boardElement = document.querySelector('.board');
+        if (boardElement) {
+            boardElement.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
+        }
         return () => {
             window.removeEventListener('keydown', handleKeyPress);
+            window.removeEventListener('touchstart', handleTouchStart);
+            window.removeEventListener('touchend', handleTouchEnd);
+            if (boardElement) {
+                boardElement.removeEventListener('touchmove', (e) => e.preventDefault());
+            }
         };
     }, [board]);
 
