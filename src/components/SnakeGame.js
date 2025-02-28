@@ -11,9 +11,11 @@ const SnakeGame = () => {
     const [snake, setSnake] = useState([{ x: 10, y: 10 }]);
     const [food, setFood] = useState(generateFood());
     const [direction, setDirection] = useState({ x: 0, y: 0 });
+    let touchStartX = 0;
+    let touchStartY = 0;
 
     useEffect(() => {
-        const interval = setInterval(moveSnake, 100);
+        const interval = setInterval(moveSnake, 200);
         return () => clearInterval(interval);
     }, [snake, direction]);
 
@@ -47,10 +49,50 @@ const SnakeGame = () => {
         }
     };
 
+    const handleTouchStart = (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+    };
+
+    const handleTouchEnd = (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            // Horizontal swipe
+            if (deltaX > 50 && direction.x === 0) {
+                setDirection({ x: 1, y: 0 });
+            } else if (deltaX < -50 && direction.x === 0) {
+                setDirection({ x: -1, y: 0 });
+            }
+        } else {
+            // Vertical swipe
+            if (deltaY > 50 && direction.y === 0) {
+                setDirection({ x: 0, y: 1 });
+            } else if (deltaY < -50 && direction.y === 0) {
+                setDirection({ x: 0, y: -1 });
+            }
+        }
+    };
+
     useEffect(() => {
         window.addEventListener('keydown', handleKeyPress);
+        window.addEventListener('touchstart', handleTouchStart);
+        window.addEventListener('touchend', handleTouchEnd);
+        const boardElement = document.querySelector('.snake-game');
+        if (boardElement) {
+            boardElement.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
+        }
         return () => {
             window.removeEventListener('keydown', handleKeyPress);
+            window.removeEventListener('touchstart', handleTouchStart);
+            window.removeEventListener('touchend', handleTouchEnd);
+            if (boardElement) {
+                boardElement.removeEventListener('touchmove', (e) => e.preventDefault());
+            }
         };
     }, [direction]);
 
@@ -70,4 +112,4 @@ const SnakeGame = () => {
 };
 
 export default SnakeGame;
-// Edit!
+// Edit
