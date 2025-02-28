@@ -1,0 +1,32 @@
+.hangman-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.word {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.attempts,
+.guesses {
+    margin: 0.5rem 0;
+}
+
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.keyboard button {
+    margin: 0.2rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.keyboard button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
