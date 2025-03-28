@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Homepage -->
+
   <url>
     <loc>https://spiele-zone.vercel.app/</loc>
     <lastmod>2025-03-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-  <!-- TZFE Game -->
   <url>
     <loc>https://spiele-zone.vercel.app/tzfe</loc>
     <lastmod>2025-03-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Snake Game -->
   <url>
     <loc>https://spiele-zone.vercel.app/snake</loc>
     <lastmod>2025-03-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Hangman Game -->
   <url>
     <loc>https://spiele-zone.vercel.app/hm</loc>
     <lastmod>2025-03-28</lastmod>
