@@ -78,6 +78,7 @@
 
 .tile-4096 {
     background-color: #800080;
+    color: red;
 }
 
 /* Add styles for higher tile values */
