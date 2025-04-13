@@ -10,7 +10,7 @@ const Hangman = () => {
 
     const [word, setWord] = useState(getRandomWord());
     const [guesses, setGuesses] = useState([]);
-    const [remainingAttempts, setRemainingAttempts] = useState(6);
+    const [remainingAttempts, setRemainingAttempts] = useState(9);
     const [gameOver, setGameOver] = useState(false);
     const [won, setWon] = useState(false);
 
