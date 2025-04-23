@@ -9,7 +9,6 @@ export default function Navbar() {
 
         <Link to="/privacy-policy">Privacy Policy</Link>
 
-        <Link to="/reach-us">Contact Us</Link>
 
     </footer>
     );
