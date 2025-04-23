@@ -1,13 +1,6 @@
-import {useEffect} from "react";
+
 export default function Homepg() {
-    useEffect(() => {
-        const loadAds = () => {
-            if (window) {
-                (window.adsbygoogle = window.adsbygoogle || []).push({});
-            }
-        };
-        loadAds();
-    }, []);
+    
 
     return (
         <div className="hp-flex">
@@ -31,17 +24,6 @@ export default function Homepg() {
                 </div>
 
 
-            </div>
-            <div classname="hp-r-ad">
-                <div>
-                    <ins
-                        className="adsbygoogle"
-                        style={{ display: "block" }}
-                        data-ad-client="ca-pub-XXXXXXXXXXXX"
-                        data-ad-slot="XXXXXXX"
-                        data-ad-format="auto"
-                    ></ins>
-                </div>
             </div>
         </div>
     );
