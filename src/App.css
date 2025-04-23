@@ -9,6 +9,17 @@
   pointer-events: none;
 }
 
+.hp-r-ad {
+  background-color: rgb(26, 214, 214);
+  max-width: 25%;
+  max-height: 25%;
+  
+}
+
+.hp-flex {
+  display: flex;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -55,4 +66,14 @@
 footer{
   position: fixed;
   bottom: 0;
+}
+
+
+
+@media (max-width: 768px) {
+  .hp-flex {
+    display: flex;
+    flex-direction: column;
+  }
+
 }
