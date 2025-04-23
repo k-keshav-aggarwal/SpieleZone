@@ -8,6 +8,10 @@ import SnakeGame from './components/SnakeGame';
 import Hangman from './components/Hangman';
 import BBar from './components/Bottombar';
 
+import Prpo from './components/prpo'
+import AU from './components/aboutus'
+// import CU from './components/contactus'
+
 function App() {
   return (
     <Router>
