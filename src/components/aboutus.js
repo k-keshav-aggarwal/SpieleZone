@@ -16,6 +16,10 @@ const aboutus = () => {
             <div>
             <Link to="https://project-rescue.onrender.com/">Personal Project #1</Link>
             </div>
+            <div>
+            <Link to="https://pr-rescue.vercel.app/">Personal Project #1 [Demo Website]</Link>
+            </div>
+            
         </div>
     )
 }
