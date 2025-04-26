@@ -10,13 +10,13 @@ const aboutus = () => {
             <p>You can figure it out that i am not good at being professional but if you reading this then please do come back to this site as much as possible. I need this... this is very much needed at this point.</p>
 
             <h2>some more websites by the creator</h2>
-            <div>
+            <div className="lts">
             <Link to="https://gsatvik.com">My resume</Link>
             </div>
-            <div>
+            <div className="lts">
             <Link to="https://project-rescue.onrender.com/">Personal Project #1</Link>
             </div>
-            <div>
+            <div className="lts">
             <Link to="https://pr-rescue.vercel.app/">Personal Project #1 [Demo Website]</Link>
             </div>
             

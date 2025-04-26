@@ -58,4 +58,12 @@ footer{
   bottom: 0;
 }
 
+.lts>a{
+  color: blue;
+}
+
+.lts>a:hover{
+  color: blueviolet;
+  font-weight: bolder;
+}
 
