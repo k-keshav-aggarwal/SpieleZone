@@ -26,7 +26,9 @@ export default function Homepg() {
             <h2>Upcoming games</h2>
             <p>We have planned few games to be added on our list</p>
             <ul>
-                
+                <li>Snake Game [work started]</li>
+                <li>Matching Game</li>
+                <li>Helix Stack</li>
             </ul>
 
           </div>
