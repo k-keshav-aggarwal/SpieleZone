@@ -36,6 +36,9 @@ export default function Homepg() {
             <h2>Contact Us</h2>
             <p>If you have any questions or feedback, please feel free to contact us via <a href="mailto:satvikgupta_it.aec@yahoo.com">email</a>.</p> {/* Added contact info */}
           </div>
+          <div>
+            <p>...</p> {/* Added contact info */}
+          </div>
         </div>
       </div>
     );
