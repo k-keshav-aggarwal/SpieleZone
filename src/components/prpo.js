@@ -4,7 +4,7 @@ const prpo = () => {
     return (
         <div>
             <h1>Privacy Policy</h1>
-            <h2>April 26,2025</h2>
+            <h2>May 6,2025</h2>
 
 
             <h2>Information we collect</h2>
@@ -20,12 +20,14 @@ const prpo = () => {
                 .</p>
             <p>
                 The information that may be collected by these third-party advertising partners includes:
-
-                <b>Cookies:</b> Small text files stored on your browser.
-                <b>Device Information:</b> Information about the device you are using to access the Website, such as device type, operating system, and browser type.
-                <b>IP Address:</b> Your internet protocol address.
-                <b>Browsing Activity:</b> Information about your interaction with this Website and other websites you visit.
-                <b>Location Data:</b> General location information may be inferred from your IP address.
+                <ul>
+                    <li><b>Cookies:</b> Small text files stored on your browser.</li>
+                    <li><b>Device Information:</b> Information about the device you are using to access the Website, such as device type, operating system, and browser type.</li>
+                    <li><b>IP Address:</b> Your internet protocol address.</li>
+                    <li><b>Browsing Activity:</b> Information about your interaction with this Website and other websites you visit.</li>
+                    <li><b>Location Data:</b> General location information may be inferred from your IP address.</li>
+                </ul>
+                
             </p> 
         </div>
     )
