@@ -23,8 +23,16 @@ export default function Homepg() {
             <p>Spiele Zone is built using React.js, a modern JavaScript library for building user interfaces. This project has been a valuable learning experience in web development.</p>
           </div>
           <div>
+            <h2>Upcoming games</h2>
+            <p>We have planned few games to be added on our list</p>
+            <ul>
+                
+            </ul>
+
+          </div>
+          <div>
             <h2>Contact Us</h2>
-            <p>If you have any questions or feedback, please feel free to contact us via <a href="mailto:your-email@example.com">email</a>.</p> {/* Added contact info */}
+            <p>If you have any questions or feedback, please feel free to contact us via <a href="mailto:satvikgupta_it.aec@yahoo.com">email</a>.</p> {/* Added contact info */}
           </div>
         </div>
       </div>
