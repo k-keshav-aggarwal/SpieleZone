@@ -34,6 +34,9 @@ const aboutus = () => {
 
   <h2>Contact</h2>
   <p>If you have any questions or feedback about Spiele Zone, please feel free to reach out via the <a href="mailto:satvikgupta_it.aec@yahoo.com">Email[press here]</a>.</p>
+  <div>
+            <p>...</p> 
+          </div>
 </div>
     )
 }
