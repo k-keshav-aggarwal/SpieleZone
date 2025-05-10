@@ -98,6 +98,7 @@ const SnakeGame = () => {
 
     return (
         <div className="snake-game">
+        <h1>Snake Game</h1>
             {Array.from({ length: 20 }, (_, rowIndex) => (
                 <div key={rowIndex} className="s-row">
                     {Array.from({ length: 20 }, (_, colIndex) => (
