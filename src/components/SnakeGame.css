@@ -32,7 +32,7 @@
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-bottom: 15px solid darkgreen;
+    border-bottom: 15px solid rgb(174, 161, 250);
 }
 
 .snake-head.up {
@@ -52,8 +52,8 @@
 }
 
 .snake-body {
-    background-color: green;
-    border: 1px solid #006400;
+    background-color: rgb(164, 136, 234);
+    border: 1px solid #7301ed;
     border-radius: 2px;
 }
 
