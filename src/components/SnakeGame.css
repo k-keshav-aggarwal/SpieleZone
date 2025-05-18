@@ -7,9 +7,9 @@
 
 .snake-game {
     display: grid;
-    grid-template-rows: repeat(15, 30px);
-    grid-template-columns: repeat(15, 30px);
-    gap: 2px;
+    grid-template-rows: repeat(20, 15px);
+    grid-template-columns: repeat(20, 15px);
+    gap: 1px;
     border: 2px solid #ccc;
     background-color: #e0e0e0;
     padding: 5px;
@@ -21,8 +21,8 @@
 }
 
 .cell {
-    width: 30px;
-    height: 30px;
+    width: 15px;
+    height: 15px;
     background-color: #fff;
     border: 1px solid #ddd;
 }
@@ -30,9 +30,9 @@
 .snake-head {
     width: 0;
     height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-bottom: 30px solid darkgreen;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 15px solid darkgreen;
 }
 
 .snake-head.up {
@@ -54,7 +54,7 @@
 .snake-body {
     background-color: green;
     border: 1px solid #006400;
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 .food {
@@ -65,7 +65,7 @@
 
 .game-info {
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 16px;
     color: #555;
 }
 
@@ -105,39 +105,44 @@
 
 @media (max-width: 400px) {
     .snake-game {
-        grid-template-rows: repeat(15, 20px);
-        grid-template-columns: repeat(15, 20px);
+        grid-template-rows: repeat(20, 15px);
+        grid-template-columns: repeat(20, 15px);
     }
 
     .cell {
-        width: 20px;
-        height: 20px;
+        width: 15px;
+        height: 15px;
     }
 
     .snake-head {
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 20px solid darkgreen;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 15px solid darkgreen;
     }
-        .game-info{
-        font-size: 16px;
+
+    .game-info {
+        font-size: 14px;
     }
 }
 
-@media (max-width: 320px){
- .snake-game {
-        grid-template-rows: repeat(15, 18px);
-        grid-template-columns: repeat(15, 18px);
+@media (max-width: 320px) {
+    .snake-game {
+        grid-template-rows: repeat(20, 12px);
+        grid-template-columns: repeat(20, 12px);
     }
 
     .cell {
-        width: 18px;
-        height: 18px;
+        width: 12px;
+        height: 12px;
     }
 
     .snake-head {
-        border-left: 9px solid transparent;
-        border-right: 9px solid transparent;
-        border-bottom: 18px solid darkgreen;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 12px solid darkgreen;
+    }
+
+    .game-info {
+        font-size: 12px;
     }
 }

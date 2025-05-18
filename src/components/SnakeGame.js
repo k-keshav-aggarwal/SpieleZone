@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './SnakeGame.css';
 
-const GRID_SIZE = 15;
+const GRID_SIZE = 20;
 
 const SnakeGame = () => {
     const generateFood = () => {
