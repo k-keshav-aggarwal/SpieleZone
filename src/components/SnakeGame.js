@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './SnakeGame.css';
 
+const GRID_SIZE = 15;
+
 const SnakeGame = () => {
     const generateFood = () => {
-        const x = Math.floor(Math.random() * 20);
-        const y = Math.floor(Math.random() * 20);
+        const x = Math.floor(Math.random() * GRID_SIZE);
+        const y = Math.floor(Math.random() * GRID_SIZE);
         return { x, y };
     };
 
-    const [snake, setSnake] = useState([{ x: 10, y: 10, direction: { x: 0, y: 0 } }]); // Store direction with head
+    const [snake, setSnake] = useState([{ x: Math.floor(GRID_SIZE / 2), y: Math.floor(GRID_SIZE / 2), direction: { x: 0, y: 0 } }]);
     const [food, setFood] = useState(generateFood());
     const [direction, setDirection] = useState({ x: 0, y: 0 });
     const [score, setScore] = useState(0);
@@ -28,9 +30,9 @@ const SnakeGame = () => {
         const head = { ...newSnake[0] };
         head.x += direction.x;
         head.y += direction.y;
-        head.direction = direction; // Store the current direction
+        head.direction = direction;
 
-        if (head.x < 0 || head.x >= 20 || head.y < 0 || head.y >= 20) {
+        if (head.x < 0 || head.x >= GRID_SIZE || head.y < 0 || head.y >= GRID_SIZE) {
             setGameOver(true);
             return;
         }
@@ -111,7 +113,7 @@ const SnakeGame = () => {
     }, [direction]);
 
     const handleReset = () => {
-        setSnake([{ x: 10, y: 10, direction: {x: 0, y: 0} }]);
+        setSnake([{ x: Math.floor(GRID_SIZE / 2), y: Math.floor(GRID_SIZE / 2), direction: {x: 0, y: 0} }]);
         setFood(generateFood());
         setDirection({ x: 0, y: 0 });
         setScore(0);
@@ -121,9 +123,9 @@ const SnakeGame = () => {
     return (
         <div className="snake-game-container">
             <div className="snake-game">
-                {Array.from({ length: 20 }, (_, rowIndex) => (
+                {Array.from({ length: GRID_SIZE }, (_, rowIndex) => (
                     <div key={rowIndex} className="s-row">
-                        {Array.from({ length: 20 }, (_, colIndex) => (
+                        {Array.from({ length: GRID_SIZE }, (_, colIndex) => (
                             <div
                                 key={colIndex}
                                 className={`cell ${snake.some((segment, index) => segment.x === colIndex && segment.y === rowIndex)
