@@ -2,17 +2,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 6px;
+    margin-top: 15px;
 }
 
 .snake-game {
     display: grid;
-    grid-template-rows: repeat(20, 20px);
-    grid-template-columns: repeat(20, 20px);
+    grid-template-rows: repeat(15, 25px);
+    grid-template-columns: repeat(15, 25px);
     gap: 2px;
     border: 2px solid #ccc;
     background-color: #e0e0e0;
     padding: 5px;
+    width: fit-content;
 }
 
 .s-row {
@@ -20,22 +21,18 @@
 }
 
 .cell {
-    width: 20px;
-    height: 20px;
-    background-color: whitesmoke;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
     border: 1px solid #ddd;
 }
 
 .snake-head {
     width: 0;
     height: 0;
-
-    border-left: 10px solid transparent;
-    
-    border-right: 10px solid transparent;
-
-    border-bottom: 20px solid darkgreen;
-
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 25px solid darkgreen;
 }
 
 .snake-head.up {
@@ -54,22 +51,20 @@
     transform: rotate(90deg);
 }
 
-
 .snake-body {
-    background-color: rgb(49, 0, 128);
-    /* Green for the body */
-    border: 1px solid #bf00ff;
+    background-color: green;
+    border: 1px solid #006400;
     border-radius: 3px;
 }
 
 .food {
-    background-color: rgb(0, 107, 28);
-    border: 1px solid rgb(1, 57, 13);
+    background-color: red;
+    border: 1px solid darkred;
     border-radius: 50%;
 }
 
 .game-info {
-    margin-top: 2px;
+    margin-top: 5px;
     font-size: 18px;
     color: #555;
 }
@@ -106,4 +101,25 @@
 
 .game-over-overlay button:hover {
     background-color: #0056b3;
+}
+
+@media (max-width: 400px) {
+    .snake-game {
+        grid-template-rows: repeat(15, 20px);
+        grid-template-columns: repeat(15, 20px);
+    }
+
+    .cell {
+        width: 20px;
+        height: 20px;
+    }
+
+    .snake-head {
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 20px solid darkgreen;
+    }
+        .game-info{
+        font-size: 16px;
+    }
 }
