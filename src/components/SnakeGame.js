@@ -122,11 +122,6 @@ const SnakeGame = () => {
 
     return (
         <>
-            <Helmet>
-                <title>Snake Game || Shadowveil StudioZ</title>
-                <meta name="description" content="Come and play nostalgic game of Snakes. Feed this crayon snake and watch it grow." />
-                <meta name="keywords" content="Snake game online, online Snake game, snake game web, snake game, shadowveil studioZ" />
-            </Helmet>
             <div className="snake-game-container">
                 <div className="snake-game">
                     {Array.from({ length: GRID_SIZE }, (_, rowIndex) => (

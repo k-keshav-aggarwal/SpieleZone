@@ -166,11 +166,6 @@ const Tzfe = () => {
 
     return (
         <>
-            <Helmet>
-                <title>2048 || Shadowveil StuidoZ</title>
-                <meta name="description" content="Play your favorite 2048 by Shadowveil Studios." />
-                <meta name="keywords" content="2048, online game, online 2048 game, 2048 online, shadowveil studio" />
-            </Helmet>
             <div className="tzfe-container">
                 <h1>2048 Game</h1>
                 <div className="board">

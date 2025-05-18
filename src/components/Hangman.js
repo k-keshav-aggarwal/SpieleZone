@@ -49,11 +49,6 @@ const Hangman = () => {
 
     return (
         <>
-            <Helmet>
-                <title>Hangman Shadowveil StudioZ</title>
-                <meta name="description" content="Come and play Hangman by Shadowveil StudioZ" />
-                <meta name="keywords" content="hangman game online, hangman game, Shadowveil StudioZ, friv" />
-            </Helmet>
             <div className="hangman-container">
                 <h1>Hangman Game</h1>
                 <div className="word">{gameOver ? word : displayWord}</div>
