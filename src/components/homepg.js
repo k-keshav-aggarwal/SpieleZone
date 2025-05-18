@@ -11,11 +11,12 @@ export default function Homepg() {
             <ul>
               <li><strong>2048:</strong> A classic puzzle game where you slide tiles to merge numbers and reach the target.</li> {/* More descriptive */}
               <li><strong>Hangman:</strong> Test your word knowledge in this engaging word-guessing game.</li> {/* More descriptive */}
-              <li><strong>Snake Game:</strong> Perfectly working. Latest addition to our game website.</li> {/* Positive framing */}
+              <li><strong>Snake Game:</strong>Latest addition to our game website. Feed your snake and see it grow.</li> {/* Positive framing */}
             </ul>
             <h2>Coming Soon</h2> 
             <ol>
               <li>Score Tracking for 2048</li>
+              <li>Different Themes</li>
               <li>More Games</li>
             </ol>
             <h2>Technical Notes</h2> 
