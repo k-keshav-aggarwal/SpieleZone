@@ -15,19 +15,21 @@ import AU from './components/aboutus'
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" exact element={<Homepg />} />
-        <Route path="/tzfe" element={<Tzfe />} />
-        <Route path="/snake" element={<SnakeGame />} />
-        <Route path="/hm" element={<Hangman />} />
-        <Route path="/privacy-policy" element={<Prpo />} />
-        <Route path="/about-us" element={<AU />} />
-        {/* <Route path="/reach-us" element={<CU />} /> */}
-      </Routes>
-      <BBar />
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" exact element={<Homepg />} />
+          <Route path="/tzfe" element={<Tzfe />} />
+          <Route path="/snake" element={<SnakeGame />} />
+          <Route path="/hm" element={<Hangman />} />
+          <Route path="/privacy-policy" element={<Prpo />} />
+          <Route path="/about-us" element={<AU />} />
+          {/* <Route path="/reach-us" element={<CU />} /> */}
+        </Routes>
+        <BBar />
+      </Router>
+    </HelmetProvider>
   );
 }
 
