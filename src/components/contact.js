@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-const CU = () => {
+const contactus = () => {
     return (
         <div>
             <h1>Our emails</h1>
@@ -16,4 +16,4 @@ const CU = () => {
     )
 }   
 
-export default CU;
+export default contactus
