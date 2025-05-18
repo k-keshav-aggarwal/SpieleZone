@@ -25,7 +25,7 @@ function App() {
           <Route path="/hm" element={<Hangman />} />
           <Route path="/privacy-policy" element={<Prpo />} />
           <Route path="/about-us" element={<AU />} />
-          {/* <Route path="/reach-us" element={<CU />} /> */}
+          <Route path="/reach-us" element={<CU />} />
         </Routes>
         <BBar />
       </Router>
