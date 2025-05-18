@@ -121,41 +121,48 @@ const SnakeGame = () => {
     };
 
     return (
-        <div className="snake-game-container">
-            <div className="snake-game">
-                {Array.from({ length: GRID_SIZE }, (_, rowIndex) => (
-                    <div key={rowIndex} className="s-row">
-                        {Array.from({ length: GRID_SIZE }, (_, colIndex) => (
-                            <div
-                                key={colIndex}
-                                className={`cell ${snake.some((segment, index) => segment.x === colIndex && segment.y === rowIndex)
-                                    ? snake.findIndex(seg => seg.x === colIndex && seg.y === rowIndex) === 0
-                                        ? `snake-head ${
-                                            snake[0].direction.x === 1 ? 'right' :
-                                            snake[0].direction.x === -1 ? 'left' :
-                                            snake[0].direction.y === 1 ? 'down' :
-                                            'up'
-                                        }`
-                                        : 'snake-body'
-                                    : food.x === colIndex && food.y === rowIndex
-                                        ? 'food'
-                                        : ''
-                                    }`}
-                            ></div>
-                        ))}
-                    </div>
-                ))}
+        <>
+            <Helmet>
+                <title>Snake Game || Shadowveil StudioZ</title>
+                <meta name="description" content="Come and play nostalgic game of Snakes. Feed this crayon snake and watch it grow." />
+                <meta name="keywords" content="Snake game online, online Snake game, snake game web, snake game, shadowveil studioZ" />
+            </Helmet>
+            <div className="snake-game-container">
+                <div className="snake-game">
+                    {Array.from({ length: GRID_SIZE }, (_, rowIndex) => (
+                        <div key={rowIndex} className="s-row">
+                            {Array.from({ length: GRID_SIZE }, (_, colIndex) => (
+                                <div
+                                    key={colIndex}
+                                    className={`cell ${snake.some((segment, index) => segment.x === colIndex && segment.y === rowIndex)
+                                        ? snake.findIndex(seg => seg.x === colIndex && seg.y === rowIndex) === 0
+                                            ? `snake-head ${
+                                                snake[0].direction.x === 1 ? 'right' :
+                                                snake[0].direction.x === -1 ? 'left' :
+                                                snake[0].direction.y === 1 ? 'down' :
+                                                'up'
+                                            }`
+                                            : 'snake-body'
+                                        : food.x === colIndex && food.y === rowIndex
+                                            ? 'food'
+                                            : ''
+                                        }`}
+                                ></div>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+                <div className="game-info">
+                    <p>Score: {score}</p>
+                    {gameOver && (
+                        <div className="game-over-overlay">
+                            <p>Game Over!</p>
+                            <button onClick={handleReset}>Reset Game</button>
+                        </div>
+                    )}
+                </div>
             </div>
-            <div className="game-info">
-                <p>Score: {score}</p>
-                {gameOver && (
-                    <div className="game-over-overlay">
-                        <p>Game Over!</p>
-                        <button onClick={handleReset}>Reset Game</button>
-                    </div>
-                )}
-            </div>
-        </div>
+        </>
     );
 };
 

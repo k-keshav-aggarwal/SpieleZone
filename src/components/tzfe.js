@@ -165,21 +165,28 @@ const Tzfe = () => {
     };
 
     return (
-        <div className="tzfe-container">
-            <h1>2048 Game</h1>
-            <div className="board">
-                {board.map((row, rowIndex) => (
-                    <div key={rowIndex} className="row">
-                        {row.map((tile, colIndex) => (
-                            <div key={colIndex} className={`tile tile-${tile}`}>
-                                {tile !== 0 ? tile : ''}
-                            </div>
-                        ))}
-                    </div>
-                ))}
+        <>
+            <Helmet>
+                <title>2048 || Shadowveil StuidoZ</title>
+                <meta name="description" content="Play your favorite 2048 by Shadowveil Studios." />
+                <meta name="keywords" content="2048, online game, online 2048 game, 2048 online, shadowveil studio" />
+            </Helmet>
+            <div className="tzfe-container">
+                <h1>2048 Game</h1>
+                <div className="board">
+                    {board.map((row, rowIndex) => (
+                        <div key={rowIndex} className="row">
+                            {row.map((tile, colIndex) => (
+                                <div key={colIndex} className={`tile tile-${tile}`}>
+                                    {tile !== 0 ? tile : ''}
+                                </div>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+                <div>By Satviky</div>
             </div>
-            <div>By Satviky</div>
-        </div>
+        </>
     );
 };
 
