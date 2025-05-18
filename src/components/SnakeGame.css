@@ -123,3 +123,21 @@
         font-size: 16px;
     }
 }
+
+@media (max-width: 320px){
+ .snake-game {
+        grid-template-rows: repeat(15, 18px);
+        grid-template-columns: repeat(15, 18px);
+    }
+
+    .cell {
+        width: 18px;
+        height: 18px;
+    }
+
+    .snake-head {
+        border-left: 9px solid transparent;
+        border-right: 9px solid transparent;
+        border-bottom: 18px solid darkgreen;
+    }
+}
