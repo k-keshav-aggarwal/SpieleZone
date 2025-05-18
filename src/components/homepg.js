@@ -3,7 +3,7 @@ export default function Homepg() {
       <div className="hp-flex">
         <div className="hp-l"> 
           <div>
-            <h1>Spiele Zone</h1>
+            <h1>Spiele Zone by Shadowveil StudioZ</h1>
             <div>Discover a collection of fun and engaging web-based games to play and enjoy.</div> {/* More user-focused description */}
           </div>
           <div>
