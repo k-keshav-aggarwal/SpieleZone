@@ -1,22 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './SnakeGame.css';
 
 const GRID_SIZE = 20;
 
 const SnakeGame = () => {
-    const generateFood = () => {
-        const x = Math.floor(Math.random() * GRID_SIZE);
-        const y = Math.floor(Math.random() * GRID_SIZE);
-        return { x, y };
-    };
+    const generateFood = () => ({
+        x: Math.floor(Math.random() * GRID_SIZE),
+        y: Math.floor(Math.random() * GRID_SIZE),
+    });
 
-    const [snake, setSnake] = useState([{ x: Math.floor(GRID_SIZE / 2), y: Math.floor(GRID_SIZE / 2), direction: { x: 0, y: 0 } }]);
+    const [snake, setSnake] = useState([
+        { x: Math.floor(GRID_SIZE / 2), y: Math.floor(GRID_SIZE / 2), direction: { x: 0, y: 0 } },
+    ]);
     const [food, setFood] = useState(generateFood());
     const [direction, setDirection] = useState({ x: 0, y: 0 });
     const [score, setScore] = useState(0);
     const [gameOver, setGameOver] = useState(false);
     let touchStartX = 0;
     let touchStartY = 0;
+    
+    // Sound effect reference
+    const eatSoundRef = useRef(null);
 
     useEffect(() => {
         const interval = setInterval(moveSnake, 200);
@@ -48,6 +52,9 @@ const SnakeGame = () => {
             newSnake.unshift(head);
             setFood(generateFood());
             setScore(prevScore => prevScore + 10);
+
+            // Play sound when snake eats food
+            eatSoundRef.current.play();
         } else {
             newSnake.pop();
             newSnake.unshift(head);
@@ -65,8 +72,17 @@ const SnakeGame = () => {
         } else if (e.key === 'ArrowRight' && direction.x === 0) {
             setDirection({ x: 1, y: 0 });
         }
+    
+        if (e.key === 'w' && direction.y === 0) {
+            setDirection({ x: 0, y: -1 });
+        } else if (e.key === 's' && direction.y === 0) {
+            setDirection({ x: 0, y: 1 });
+        } else if (e.key === 'a' && direction.x === 0) {
+            setDirection({ x: -1, y: 0 });
+        } else if (e.key === 'd' && direction.x === 0) {
+            setDirection({ x: 1, y: 0 });
+        }
     };
-
     const handleTouchStart = (e) => {
         touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
@@ -121,13 +137,17 @@ const SnakeGame = () => {
     };
 
     return (
-        <>
-            <div className="snake-game-container">
-                <div className="snake-game">
-                    {Array.from({ length: GRID_SIZE }, (_, rowIndex) => (
-                        <div key={rowIndex} className="s-row">
-                            {Array.from({ length: GRID_SIZE }, (_, colIndex) => (
-                                <div
+        <div className="snake-game-container">
+            {/* Hidden Audio Element */}
+            <audio ref={eatSoundRef}>
+                <source src="/audios/pop.mp3" type="audio/mpeg" />
+            </audio>
+
+            <div className="snake-game">
+                {Array.from({ length: GRID_SIZE }, (_, rowIndex) => (
+                    <div key={rowIndex} className="s-row">
+                        {Array.from({ length: GRID_SIZE }, (_, colIndex) => (
+                            <div
                                     key={colIndex}
                                     className={`cell ${snake.some((segment, index) => segment.x === colIndex && segment.y === rowIndex)
                                         ? snake.findIndex(seg => seg.x === colIndex && seg.y === rowIndex) === 0
@@ -143,21 +163,20 @@ const SnakeGame = () => {
                                             : ''
                                         }`}
                                 ></div>
-                            ))}
-                        </div>
-                    ))}
-                </div>
-                <div className="game-info">
-                    <p>Score: {score}</p>
-                    {gameOver && (
-                        <div className="game-over-overlay">
-                            <p>Game Over!</p>
-                            <button onClick={handleReset}>Reset Game</button>
-                        </div>
-                    )}
-                </div>
+                        ))}
+                    </div>
+                ))}
             </div>
-        </>
+            <div className="game-info">
+                <p>Score: {score}</p>
+                {gameOver && (
+                    <div className="game-over-overlay">
+                        <p>Game Over!</p>
+                        <button onClick={() => window.location.reload()}>Reset Game</button>
+                    </div>
+                )}
+            </div>
+        </div>
     );
 };
 
