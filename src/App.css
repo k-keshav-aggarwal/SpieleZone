@@ -66,3 +66,59 @@ footer{
   color: blueviolet;
   font-weight: bolder;
 }
+
+
+
+.game-over-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    z-index: 10;
+}
+
+.game-over-overlay p {
+    margin-bottom: 20px;
+}
+
+.game-over-overlay button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.game-over-overlay button:hover {
+    background-color: #0056b3;
+}
+
+.emoji-rating {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.emoji {
+    cursor: pointer;
+    margin: 0 5px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.emoji:hover {
+    transform: scale(1.2);
+}
+
+.emoji.selected {
+    color: #ffd700;
+}

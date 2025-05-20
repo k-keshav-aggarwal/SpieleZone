@@ -16,6 +16,8 @@ const SnakeGame = () => {
     const [direction, setDirection] = useState({ x: 0, y: 0 });
     const [score, setScore] = useState(0);
     const [gameOver, setGameOver] = useState(false);
+    const [rating, setRating] = useState(0);  // Added state for rating
+    const [rated, setRated] = useState(false);
     let touchStartX = 0;
     let touchStartY = 0;
     
@@ -54,7 +56,11 @@ const SnakeGame = () => {
             setScore(prevScore => prevScore + 10);
 
             // Play sound when snake eats food
-            eatSoundRef.current.play();
+            if (eatSoundRef.current) {
+              eatSoundRef.current.play().catch(err => {
+                console.error("Failed to play sound:", err);
+              });
+            }
         } else {
             newSnake.pop();
             newSnake.unshift(head);
@@ -128,13 +134,70 @@ const SnakeGame = () => {
         };
     }, [direction]);
 
+    const handleStarClick = (selectedRating) => {
+        setRating(selectedRating);
+        setRated(true);
+    };
+
     const handleReset = () => {
         setSnake([{ x: Math.floor(GRID_SIZE / 2), y: Math.floor(GRID_SIZE / 2), direction: {x: 0, y: 0} }]);
         setFood(generateFood());
         setDirection({ x: 0, y: 0 });
         setScore(0);
         setGameOver(false);
+        setRating(0);
+        setRated(false);
     };
+
+    const renderRating = () => {
+        if (rated) {
+            return <p>Thank you for rating!</p>;
+        }
+
+        return (
+            <div className="emoji-rating">
+                <span
+                    className={`emoji ${rating >= 1 ? 'selected' : ''}`}
+                    onClick={() => handleStarClick(1)}
+                    style={{ fontSize: '24px' }}
+                >
+                    😀
+                </span>
+                <span
+                    className={`emoji ${rating >= 2 ? 'selected' : ''}`}
+                    onClick={() => handleStarClick(2)}
+                    style={{ fontSize: '24px' }}
+
+                >
+                    😃
+                </span>
+                <span
+                    className={`emoji ${rating >= 3 ? 'selected' : ''}`}
+                    onClick={() => handleStarClick(3)}
+                    style={{ fontSize: '24px' }}
+
+                >
+                    😄
+                </span>
+                <span
+                    className={`emoji ${rating >= 4 ? 'selected' : ''}`}
+                    onClick={() => handleStarClick(4)}
+                    style={{ fontSize: '24px' }}
+
+                >
+                    😁
+                </span>
+                <span
+                    className={`emoji ${rating >= 5 ? 'selected' : ''}`}
+                    onClick={() => handleStarClick(5)}
+                    style={{ fontSize: '24px' }}
+                >
+                    😆
+                </span>
+            </div>
+        );
+    };
+
 
     return (
         <>
@@ -164,7 +227,7 @@ const SnakeGame = () => {
                                             ? 'food'
                                             : ''
                                         }`}
-                                ></div>
+                            ></div>
                         ))}
                     </div>
                 ))}
@@ -175,6 +238,7 @@ const SnakeGame = () => {
                     <div className="game-over-overlay">
                         <p>Game Over!</p>
                         <button onClick={() => window.location.reload()}>Reset Game</button>
+                        {renderRating()}
                     </div>
                 )}
             </div>
@@ -184,3 +248,4 @@ const SnakeGame = () => {
 };
 
 export default SnakeGame;
+
