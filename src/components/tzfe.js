@@ -179,7 +179,7 @@ const Tzfe = () => {
                         </div>
                     ))}
                 </div>
-                <div>By Satviky</div>
+                <h6>By Shadowveil StudioZ</h6>
             </div>
         </>
     );

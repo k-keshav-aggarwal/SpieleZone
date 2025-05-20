@@ -137,6 +137,8 @@ const SnakeGame = () => {
     };
 
     return (
+        <>
+        <h1>Snake Game</h1>
         <div className="snake-game-container">
             {/* Hidden Audio Element */}
             <audio ref={eatSoundRef}>
@@ -177,6 +179,7 @@ const SnakeGame = () => {
                 )}
             </div>
         </div>
+        </>
     );
 };
 
