@@ -3,6 +3,9 @@ import './Tzfe.css';
 
 const Tzfe = () => {
     const [board, setBoard] = useState(createBoard());
+    const [gameOver, setGameOver] = useState(false);
+    const [rating, setRating] = useState(0);
+    const [rated, setRated] = useState(false);
     let touchStartX = 0;
     let touchStartY = 0;
 
@@ -26,20 +29,30 @@ const Tzfe = () => {
     }
 
     const handleKeyPress = (e) => {
-        let newBoard = [...board];
+        if (gameOver) return;
+        let newBoard = board.map(row => [...row]); // Deep copy
+        let moved = false;
+
         if (e.key === 'ArrowUp') {
             newBoard = moveUp(newBoard);
+            moved = didBoardChange(board, newBoard);
         } else if (e.key === 'ArrowDown') {
             newBoard = moveDown(newBoard);
+            moved = didBoardChange(board, newBoard);
         } else if (e.key === 'ArrowLeft') {
             newBoard = moveLeft(newBoard);
+            moved = didBoardChange(board, newBoard);
         } else if (e.key === 'ArrowRight') {
             newBoard = moveRight(newBoard);
+            moved = didBoardChange(board, newBoard);
         }
 
-        if (JSON.stringify(newBoard) !== JSON.stringify(board)) {
+        if (moved) {
             addNewTile(newBoard);
             setBoard(newBoard);
+        }
+        if (isGameOver(newBoard)) {
+            setGameOver(true);
         }
     };
 
@@ -49,6 +62,7 @@ const Tzfe = () => {
     };
 
     const handleTouchEnd = (e) => {
+        if (gameOver) return;
         const touchEndX = e.changedTouches[0].clientX;
         const touchEndY = e.changedTouches[0].clientY;
 
@@ -88,7 +102,7 @@ const Tzfe = () => {
                 boardElement.removeEventListener('touchmove', (e) => e.preventDefault());
             }
         };
-    }, [board]);
+    }, [board, gameOver]);
 
     const moveUp = (board) => {
         const newBoard = rotateLeft(board);
@@ -164,24 +178,116 @@ const Tzfe = () => {
         return newBoard;
     };
 
-    return (
-        <>
-            <div className="tzfe-container">
-                <h1>2048 Game</h1>
-                <div className="board">
-                    {board.map((row, rowIndex) => (
-                        <div key={rowIndex} className="row">
-                            {row.map((tile, colIndex) => (
-                                <div key={colIndex} className={`tile tile-${tile}`}>
-                                    {tile !== 0 ? tile : ''}
-                                </div>
-                            ))}
-                        </div>
-                    ))}
-                </div>
-                <h6>By Shadowveil StudioZ</h6>
+    function isGameOver(board) {
+        // Check for empty cells
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 4; j++) {
+                if (board[i][j] === 0) {
+                    return false; // There's an empty cell, game is not over
+                }
+            }
+        }
+
+        // Check for adjacent tiles with same value
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (board[i][j] === board[i][j + 1] || board[j][i] === board[j + 1][i]) {
+                    return false; // Found adjacent matching tiles
+                }
+            }
+        }
+
+        return true; // No empty cells and no adjacent matching tiles
+    }
+
+    function didBoardChange(oldBoard, newBoard) {
+        return JSON.stringify(oldBoard) !== JSON.stringify(newBoard);
+    }
+
+    const handleReset = () => {
+        setBoard(createBoard());
+        setGameOver(false);
+        setRating(0);
+        setRated(false);
+    };
+
+      const renderRating = () => {
+        if (rated) {
+            return <p>Thank you for rating!</p>;
+        }
+
+        return (
+            <div className="emoji-rating">
+                <span
+                    className={`emoji ${rating >= 1 ? 'selected' : ''}`}
+                    onClick={() => handleStarClick(1)}
+                    style={{ fontSize: '24px' }}
+                >
+                    😀
+                </span>
+                <span
+                    className={`emoji ${rating >= 2 ? 'selected' : ''}`}
+                    onClick={() => handleStarClick(2)}
+                    style={{ fontSize: '24px' }}
+
+                >
+                    😃
+                </span>
+                <span
+                    className={`emoji ${rating >= 3 ? 'selected' : ''}`}
+                    onClick={() => handleStarClick(3)}
+                    style={{ fontSize: '24px' }}
+
+                >
+                    😄
+                </span>
+                <span
+                    className={`emoji ${rating >= 4 ? 'selected' : ''}`}
+                    onClick={() => handleStarClick(4)}
+                    style={{ fontSize: '24px' }}
+
+                >
+                    😁
+                </span>
+                <span
+                    className={`emoji ${rating >= 5 ? 'selected' : ''}`}
+                    onClick={() => handleStarClick(5)}
+                    style={{ fontSize: '24px' }}
+                >
+                    😆
+                </span>
             </div>
-        </>
+        );
+    };
+
+    const handleStarClick = (selectedRating) => {
+        setRating(selectedRating);
+        setRated(true);
+    };
+
+    return (
+        <div className="tzfe-container">
+            <h1>2048 Game</h1>
+            <div className="board">
+                {board.map((row, rowIndex) => (
+                    <div key={rowIndex} className="row">
+                        {row.map((tile, colIndex) => (
+                            <div key={colIndex} className={`tile tile-${tile}`}>
+                                {tile !== 0 ? tile : ''}
+                            </div>
+                        ))}
+                    </div>
+                ))}
+            </div>
+             {gameOver && (
+                    <div className="game-over-overlay">
+                        <p>Game Over!</p>
+                        <button onClick={handleReset}>Reset Game</button>
+                        {renderRating()}
+                    </div>
+                )}
+            <div>By Satviky</div>
+        </div>
     );
 };
 
