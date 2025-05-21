@@ -134,6 +134,41 @@ const SnakeGame = () => {
         };
     }, [direction]);
 
+    useEffect(() => {
+            const prevTitle = document.title;
+            const prevDesc = document.querySelector("meta[name='description']")?.getAttribute('content');
+    
+            // Set new SEO title & description
+            document.title = 'Snake Game- One pixel at a time by Shadowveil StudioZ';
+            let descTag = document.querySelector("meta[name='description']");
+            if (!descTag) {
+                descTag = document.createElement('meta');
+                descTag.name = 'description';
+                document.head.appendChild(descTag);
+            }
+            descTag.setAttribute('content', 'Play the classic and nostalgic Sname game online for free at Spiele Zone by Shadowveil StudioZ! Swipe, arrows or w,a,s,d use whatever you wish to.');
+    
+            // Canonical link
+            let canonical = document.querySelector("link[rel='canonical']");
+            if (!canonical) {
+                canonical = document.createElement('link');
+                canonical.rel = 'canonical';
+                document.head.appendChild(canonical);
+            }
+            canonical.setAttribute('href', 'https://spiele-zone.vercel.app/snake');
+    
+            return () => {
+                document.title = prevTitle;
+                if (descTag && prevDesc) {
+                    descTag.setAttribute('content', prevDesc);
+                }
+                if (canonical) {
+                    canonical.setAttribute('href', 'https://spiele-zone.vercel.app/');
+                }
+            };
+        }, []);
+    
+
     const handleStarClick = (selectedRating) => {
         setRating(selectedRating);
         setRated(true);
