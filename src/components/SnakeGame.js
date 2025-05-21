@@ -208,7 +208,8 @@ const SnakeGame = () => {
 
     return (
         <>
-        <h1>Snake Game - One Pixel at a time.</h1>
+        <h1>Snake Game</h1>
+        <h2>One Pixel at a time.</h2>
         <div className="snake-game-container">
             {/* Hidden Audio Element */}
             <audio ref={eatSoundRef}>
