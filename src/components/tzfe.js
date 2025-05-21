@@ -70,14 +70,12 @@ const Tzfe = () => {
         const deltaY = touchEndY - touchStartY;
 
         if (Math.abs(deltaX) > Math.abs(deltaY)) {
-            // Horizontal swipe
             if (deltaX > 50) {
                 handleKeyPress({ key: 'ArrowRight' });
             } else if (deltaX < -50) {
                 handleKeyPress({ key: 'ArrowLeft' });
             }
         } else {
-            // Vertical swipe
             if (deltaY > 50) {
                 handleKeyPress({ key: 'ArrowDown' });
             } else if (deltaY < -50) {
@@ -103,6 +101,41 @@ const Tzfe = () => {
             }
         };
     }, [board, gameOver]);
+
+    // ✅ SEO tags injected dynamically
+    useEffect(() => {
+        const prevTitle = document.title;
+        const prevDesc = document.querySelector("meta[name='description']")?.getAttribute('content');
+
+        // Set new SEO title & description
+        document.title = '2048 Online - Spiele Zone by Shadowveil StudioZ';
+        let descTag = document.querySelector("meta[name='description']");
+        if (!descTag) {
+            descTag = document.createElement('meta');
+            descTag.name = 'description';
+            document.head.appendChild(descTag);
+        }
+        descTag.setAttribute('content', 'Play the classic 2048 puzzle game online for free at Spiele Zone by Shadowveil StudioZ! Swipe to combine numbers and reach 2048.');
+
+        // Canonical link
+        let canonical = document.querySelector("link[rel='canonical']");
+        if (!canonical) {
+            canonical = document.createElement('link');
+            canonical.rel = 'canonical';
+            document.head.appendChild(canonical);
+        }
+        canonical.setAttribute('href', 'https://spiele-zone.vercel.app/tzfe');
+
+        return () => {
+            document.title = prevTitle;
+            if (descTag && prevDesc) {
+                descTag.setAttribute('content', prevDesc);
+            }
+            if (canonical) {
+                canonical.setAttribute('href', 'https://spiele-zone.vercel.app/');
+            }
+        };
+    }, []);
 
     const moveUp = (board) => {
         const newBoard = rotateLeft(board);
@@ -179,25 +212,17 @@ const Tzfe = () => {
     };
 
     function isGameOver(board) {
-        // Check for empty cells
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 4; j++) {
-                if (board[i][j] === 0) {
-                    return false; // There's an empty cell, game is not over
-                }
+                if (board[i][j] === 0) return false;
             }
         }
-
-        // Check for adjacent tiles with same value
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 3; j++) {
-                if (board[i][j] === board[i][j + 1] || board[j][i] === board[j + 1][i]) {
-                    return false; // Found adjacent matching tiles
-                }
+                if (board[i][j] === board[i][j + 1] || board[j][i] === board[j + 1][i]) return false;
             }
         }
-
-        return true; // No empty cells and no adjacent matching tiles
+        return true;
     }
 
     function didBoardChange(oldBoard, newBoard) {
@@ -211,51 +236,23 @@ const Tzfe = () => {
         setRated(false);
     };
 
-      const renderRating = () => {
+    const renderRating = () => {
         if (rated) {
             return <p>Thank you for rating!</p>;
         }
 
         return (
             <div className="emoji-rating">
-                <span
-                    className={`emoji ${rating >= 1 ? 'selected' : ''}`}
-                    onClick={() => handleStarClick(1)}
-                    style={{ fontSize: '24px' }}
-                >
-                    😀
-                </span>
-                <span
-                    className={`emoji ${rating >= 2 ? 'selected' : ''}`}
-                    onClick={() => handleStarClick(2)}
-                    style={{ fontSize: '24px' }}
-
-                >
-                    😃
-                </span>
-                <span
-                    className={`emoji ${rating >= 3 ? 'selected' : ''}`}
-                    onClick={() => handleStarClick(3)}
-                    style={{ fontSize: '24px' }}
-
-                >
-                    😄
-                </span>
-                <span
-                    className={`emoji ${rating >= 4 ? 'selected' : ''}`}
-                    onClick={() => handleStarClick(4)}
-                    style={{ fontSize: '24px' }}
-
-                >
-                    😁
-                </span>
-                <span
-                    className={`emoji ${rating >= 5 ? 'selected' : ''}`}
-                    onClick={() => handleStarClick(5)}
-                    style={{ fontSize: '24px' }}
-                >
-                    😆
-                </span>
+                {[1, 2, 3, 4, 5].map((num, i) => (
+                    <span
+                        key={i}
+                        className={`emoji ${rating >= num ? 'selected' : ''}`}
+                        onClick={() => handleStarClick(num)}
+                        style={{ fontSize: '24px' }}
+                    >
+                        {['👎', '😕', '😐', '😃', '😆'][i]}
+                    </span>
+                ))}
             </div>
         );
     };
@@ -279,13 +276,13 @@ const Tzfe = () => {
                     </div>
                 ))}
             </div>
-             {gameOver && (
-                    <div className="game-over-overlay">
-                        <p>Game Over!</p>
-                        <button onClick={handleReset}>Reset Game</button>
-                        {renderRating()}
-                    </div>
-                )}
+            {gameOver && (
+                <div className="game-over-overlay">
+                    <p>Game Over!</p>
+                    <button onClick={handleReset}>Reset Game</button>
+                    {renderRating()}
+                </div>
+            )}
             <div>By Satviky</div>
         </div>
     );

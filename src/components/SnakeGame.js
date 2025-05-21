@@ -156,44 +156,16 @@ const SnakeGame = () => {
 
         return (
             <div className="emoji-rating">
-                <span
-                    className={`emoji ${rating >= 1 ? 'selected' : ''}`}
-                    onClick={() => handleStarClick(1)}
-                    style={{ fontSize: '24px' }}
-                >
-                    😀
-                </span>
-                <span
-                    className={`emoji ${rating >= 2 ? 'selected' : ''}`}
-                    onClick={() => handleStarClick(2)}
-                    style={{ fontSize: '24px' }}
-
-                >
-                    😃
-                </span>
-                <span
-                    className={`emoji ${rating >= 3 ? 'selected' : ''}`}
-                    onClick={() => handleStarClick(3)}
-                    style={{ fontSize: '24px' }}
-
-                >
-                    😄
-                </span>
-                <span
-                    className={`emoji ${rating >= 4 ? 'selected' : ''}`}
-                    onClick={() => handleStarClick(4)}
-                    style={{ fontSize: '24px' }}
-
-                >
-                    😁
-                </span>
-                <span
-                    className={`emoji ${rating >= 5 ? 'selected' : ''}`}
-                    onClick={() => handleStarClick(5)}
-                    style={{ fontSize: '24px' }}
-                >
-                    😆
-                </span>
+                {[1, 2, 3, 4, 5].map((num, i) => (
+                    <span
+                        key={i}
+                        className={`emoji ${rating >= num ? 'selected' : ''}`}
+                        onClick={() => handleStarClick(num)}
+                        style={{ fontSize: '24px' }}
+                    >
+                        {['👎', '😕', '😐', '😃', '😆'][i]}
+                    </span>
+                ))}
             </div>
         );
     };
