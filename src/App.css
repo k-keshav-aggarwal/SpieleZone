@@ -58,6 +58,11 @@ footer{
   bottom: 0;
 }
 
+.whitespace{
+  height: 8vh;
+}
+
+
 .lts>a{
   color: blue;
 }
@@ -121,4 +126,13 @@ footer{
 
 .emoji.selected {
     color: #ffd700;
+}
+
+@media screen and (max-width: 770px) {
+  .nophone{
+    display: none;
+  }
+  .game-name{
+    display: contents;
+  }
 }
