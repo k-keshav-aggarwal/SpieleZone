@@ -72,11 +72,13 @@
 .sp-l{
     position: absolute;
     left: 0;
+    top:115px;
 }
 
 .sp-r{
     position: absolute;
     right: 0;
+    top: 100px;
 }
 
 @media screen and (max-width: 770px) {
