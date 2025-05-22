@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.game-name{
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}

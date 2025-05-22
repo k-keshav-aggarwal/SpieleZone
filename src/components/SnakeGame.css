@@ -68,3 +68,20 @@
     font-size: 16px;
     color: #555;
 }
+
+
+.snake-para{
+    position: absolute;
+
+}
+
+.sp-r{
+    position: absolute;
+    right: 0;
+}
+
+@media screen and (max-width: 770px) {
+    .sp-r{
+        position: static;
+    }
+}
