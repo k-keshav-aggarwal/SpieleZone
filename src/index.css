@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.w-300{
+  max-width: 300px;
+}
+
 .game-name{
   display: flex;
   align-items: baseline;

@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .snake-game {
@@ -64,15 +64,14 @@
 }
 
 .game-info {
-    margin-top: 7px;
+    margin-top: 10px;
     font-size: 16px;
     color: #555;
 }
 
-
-.snake-para{
+.sp-l{
     position: absolute;
-
+    left: 0;
 }
 
 .sp-r{
@@ -83,11 +82,5 @@
 @media screen and (max-width: 770px) {
     .sp-r{
         position: static;
-    }
-    .game-name>h1{
-        font-size: 24px;
-    }
-    .game-name>h2{
-        font-size: 20px;
     }
 }

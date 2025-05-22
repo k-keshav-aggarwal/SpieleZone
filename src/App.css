@@ -9,7 +9,6 @@
   pointer-events: none;
 }
 
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -35,12 +34,13 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-.bar{
+.bar {
   background-color: rgb(7, 7, 7);
   color: aliceblue;
   width: 99vw;
@@ -49,11 +49,12 @@
   align-items: center;
   padding: 5px;
 }
-.bar a{
+
+.bar a {
   color: lavender;
 }
 
-footer{
+footer {
   position: fixed;
   bottom: 0;
 }
@@ -61,18 +62,6 @@ footer{
 .whitespace{
   height: 8vh;
 }
-
-
-.lts>a{
-  color: blue;
-}
-
-.lts>a:hover{
-  color: blueviolet;
-  font-weight: bolder;
-}
-
-
 
 .game-over-overlay {
     position: absolute;

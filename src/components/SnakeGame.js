@@ -251,7 +251,7 @@ const SnakeGame = () => {
                         </div>
                     )}
                 </div>
-                <p className='nophone snake-para w-300'>
+                <p className='nophone sp-l w-300'>
                 <strong>Snake Game</strong> is a video game which was released somewhere near 1970s in arcade. It stayed popular for a long time ever since. When it became pre-loaded game on Nokia phone in 1998, Snake found a good fanbase.
                 Player create long thin creature, resembling a snake chasing pixels of 'food' and desperately avoiding the walls and its own tail.  It wasn't just a game; it was a cultural phenomenon, a shared memory for an entire generation, teaching us about strategy, quick reflexes, and the crushing despair of hitting your own body just inches from a new high score.
                 <div>Can you beat your own <strong>high score?</strong></div>
@@ -272,7 +272,9 @@ const SnakeGame = () => {
                         <li><strong>S</strong> to move Right</li>
                         <li><strong>D</strong> to move down</li>
                     </ul>
-                </ol></p>
+                </ol>
+            
+            </p>
             </div>
         </>
     );
