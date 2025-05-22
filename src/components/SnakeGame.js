@@ -258,6 +258,10 @@ const SnakeGame = () => {
             </p>
             <p className='snake-para w-300 sp-r'>
                 <h3>Snake Game Controls</h3>
+                <h4>For Mobile Phones</h4>
+                <ul>
+                    <li>You can <strong>Swipe</strong> the snake to move it in the respective direction.</li>
+                </ul>
                     <h4>For windows</h4>
                 <ol>
                     <li>You can use Arrow keys to move the snake in the respective directions.</li>
@@ -268,13 +272,7 @@ const SnakeGame = () => {
                         <li><strong>S</strong> to move Right</li>
                         <li><strong>D</strong> to move down</li>
                     </ul>
-                </ol>
-                <h4>For Mobile Phones</h4>
-                <ul>
-                    <li>You can <strong>Swipe</strong> the snake to move it in the respective direction.</li>
-                </ul>
-            
-            </p>
+                </ol></p>
             </div>
         </>
     );
