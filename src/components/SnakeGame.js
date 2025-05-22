@@ -269,8 +269,8 @@ const SnakeGame = () => {
                     <ul>
                         <li><strong>W</strong> to move UP</li>
                         <li><strong>A</strong> to move Left</li>
-                        <li><strong>S</strong> to move Right</li>
-                        <li><strong>D</strong> to move down</li>
+                        <li><strong>D</strong> to move Right</li>
+                        <li><strong>S</strong> to move down</li>
                     </ul>
                 </ol>
             
