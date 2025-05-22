@@ -84,4 +84,7 @@
     .sp-r{
         position: static;
     }
+    .game-name>h2{
+        font-size: 20px;
+    }
 }
