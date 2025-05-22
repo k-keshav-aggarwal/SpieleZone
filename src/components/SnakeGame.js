@@ -88,6 +88,16 @@ const SnakeGame = () => {
         } else if (e.key === 'd' && direction.x === 0) {
             setDirection({ x: 1, y: 0 });
         }
+
+        if (e.key === 'W' && direction.y === 0) {
+            setDirection({ x: 0, y: -1 });
+        } else if (e.key === 'S' && direction.y === 0) {
+            setDirection({ x: 0, y: 1 });
+        } else if (e.key === 'A' && direction.x === 0) {
+            setDirection({ x: -1, y: 0 });
+        } else if (e.key === 'D' && direction.x === 0) {
+            setDirection({ x: 1, y: 0 });
+        }
     };
     const handleTouchStart = (e) => {
         touchStartX = e.touches[0].clientX;
