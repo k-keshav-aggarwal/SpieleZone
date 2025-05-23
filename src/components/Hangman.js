@@ -31,6 +31,32 @@ const Hangman = () => {
     };
 
     useEffect(() => {
+        const jsonLd = {
+            "@context": "https://schema.org",
+            "@type": "Game",
+            "name": "Hangman",
+            "applicationCategory": "Word game",
+            "operatingSystem": "All",
+            "url": "https://spielezone.com/hm",
+            "author": {
+                "@type": "Organization",
+                "name": "Shadowveil Studio"
+            },
+            "description": "Play Hangman online at Spiele Zone. Guess the word before you run out of chances!",
+            "image": "https://spielezone.com/assets/og-hangman.png"
+        };
+
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.text = JSON.stringify(jsonLd);
+        document.head.appendChild(script);
+
+        return () => {
+            document.head.removeChild(script);
+        };
+    }, []);
+
+    useEffect(() => {
         window.addEventListener('keydown', handleKeyPress);
         return () => {
             window.removeEventListener('keydown', handleKeyPress);
