@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 
 interface SEOProps {
   title: string;
-  description?: string;
-  keywords?: string;
+  description: string;
   canonical?: string;
+  keywords?: string;
   ogTitle?: string;
   ogDescription?: string;
   ogImage?: string;
@@ -13,40 +13,71 @@ interface SEOProps {
 export const useSEO = ({
   title,
   description,
-  keywords,
   canonical,
+  keywords,
   ogTitle,
   ogDescription,
   ogImage,
 }: SEOProps) => {
   useEffect(() => {
+    const prevTitle = document.title;
+    const prevDesc = document.querySelector("meta[name='description']")?.getAttribute('content') || '';
+    const prevKeywords = document.querySelector("meta[name='keywords']")?.getAttribute('content') || '';
+
+    // Set title
     document.title = title;
 
-    const setMeta = (name: string, content: string, isProperty = false) => {
-      let tag = document.querySelector(
-        isProperty ? `meta[property='${name}']` : `meta[name='${name}']`
-      );
+    // Description
+    let descTag = document.querySelector("meta[name='description']") as HTMLMetaElement | null;
+    if (!descTag) {
+      descTag = document.createElement('meta') as HTMLMetaElement;
+      descTag.name = 'description';
+      document.head.appendChild(descTag);
+    }
+    descTag.content = description;
+
+    // Canonical
+    let canonicalTag = document.querySelector("link[rel='canonical']") as HTMLLinkElement | null;
+    if (!canonicalTag) {
+      canonicalTag = document.createElement('link') as HTMLLinkElement;
+      canonicalTag.rel = 'canonical';
+      document.head.appendChild(canonicalTag);
+    }
+    canonicalTag.href = canonical || window.location.href;
+
+    // Keywords (optional)
+    if (keywords) {
+      let keywordTag = document.querySelector("meta[name='keywords']") as HTMLMetaElement | null;
+      if (!keywordTag) {
+        keywordTag = document.createElement('meta') as HTMLMetaElement;
+        keywordTag.name = 'keywords';
+        document.head.appendChild(keywordTag);
+      }
+      keywordTag.content = keywords;
+    }
+
+    // Open Graph (optional)
+    const setOgTag = (property: string, content: string | undefined) => {
+      if (!content) return;
+      let tag = document.querySelector(`meta[property='${property}']`) as HTMLMetaElement | null;
       if (!tag) {
-        tag = document.createElement('meta');
-        tag.setAttribute(isProperty ? 'property' : 'name', name);
+        tag = document.createElement('meta') as HTMLMetaElement;
+        tag.setAttribute('property', property);
         document.head.appendChild(tag);
       }
-      tag.setAttribute('content', content);
+      tag.content = content;
     };
 
-    if (description) setMeta('description', description);
-    if (keywords) setMeta('keywords', keywords);
-    if (canonical) {
-      let canonicalTag = document.querySelector("link[rel='canonical']");
-      if (!canonicalTag) {
-        canonicalTag = document.createElement('link');
-        canonicalTag.rel = 'canonical';
-        document.head.appendChild(canonicalTag);
-      }
-      canonicalTag.setAttribute('href', canonical);
-    }
-    if (ogTitle) setMeta('og:title', ogTitle, true);
-    if (ogDescription) setMeta('og:description', ogDescription, true);
-    if (ogImage) setMeta('og:image', ogImage, true);
-  }, [title, description, keywords, canonical, ogTitle, ogDescription, ogImage]);
+    setOgTag('og:title', ogTitle || title);
+    setOgTag('og:description', ogDescription || description);
+    setOgTag('og:url', canonical || window.location.href);
+    setOgTag('og:image', ogImage || '');
+
+    // Cleanup on unmount
+    return () => {
+      document.title = prevTitle;
+      if (descTag) descTag.content = prevDesc;
+      if (canonicalTag) canonicalTag.href = window.location.origin;
+    };
+  }, [title, description, canonical, keywords, ogTitle, ogDescription, ogImage]);
 };
