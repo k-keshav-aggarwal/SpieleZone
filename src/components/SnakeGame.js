@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useSEO } from '../hooks/useSEO';
 import './SnakeGame.css';
 
 const GRID_SIZE = 20;
@@ -144,124 +145,101 @@ const SnakeGame = () => {
         };
     }, [direction]);
 
-    useEffect(() => {
-        const prevTitle = document.title;
-        const prevDesc = document.querySelector("meta[name='description']")?.getAttribute('content');
 
-        // Set new SEO title & description
-        document.title = 'Snake Game- One pixel at a time by Shadowveil StudioZ';
-        let descTag = document.querySelector("meta[name='description']");
-        if (!descTag) {
-            descTag = document.createElement('meta');
-            descTag.name = 'description';
-            document.head.appendChild(descTag);
-        }
-        descTag.setAttribute('content', 'Play the classic and nostalgic Sname game online for free at Spiele Zone by Shadowveil StudioZ! Swipe, arrows or w,a,s,d use whatever you wish to.');
-
-        // Canonical link
-        let canonical = document.querySelector("link[rel='canonical']");
-        if (!canonical) {
-            canonical = document.createElement('link');
-            canonical.rel = 'canonical';
-            document.head.appendChild(canonical);
-        }
-        canonical.setAttribute('href', 'https://spiele-zone.vercel.app/snake');
-
-        return () => {
-            document.title = prevTitle;
-            if (descTag && prevDesc) {
-                descTag.setAttribute('content', prevDesc);
-            }
-            if (canonical) {
-                canonical.setAttribute('href', 'https://spiele-zone.vercel.app/');
-            }
-        };
-    }, []);
+    useSEO({
+        title: 'Snake Game - One pixel at a time',
+        description: 'Play the classic and Nostalgic Snake game online for free!',
+        keywords: 'snake game, online snake, classic snake game, spiele zone, shadowveil studioZ snake game',
+        canonical: 'https://spiele-zone.vercel.app/snake',
+        ogTitle: 'Snake Game - Spiele Zone',
+        ogDescription: 'Play the nostalgic Snake game directly in your browser!',
+        ogImage: 'https://spiele-zone.vercel.app/images/snake-game.png'
+    });
 
 
-    const handleStarClick = (selectedRating) => {
-        setRating(selectedRating);
-        setRated(true);
-    };
+const handleStarClick = (selectedRating) => {
+    setRating(selectedRating);
+    setRated(true);
+};
 
-    const handleReset = () => {
-        setSnake([{ x: Math.floor(GRID_SIZE / 2), y: Math.floor(GRID_SIZE / 2), direction: { x: 0, y: 0 } }]);
-        setFood(generateFood());
-        setDirection({ x: 0, y: 0 });
-        setScore(0);
-        setGameOver(false);
-        setRating(0);
-        setRated(false);
-    };
+const handleReset = () => {
+    setSnake([{ x: Math.floor(GRID_SIZE / 2), y: Math.floor(GRID_SIZE / 2), direction: { x: 0, y: 0 } }]);
+    setFood(generateFood());
+    setDirection({ x: 0, y: 0 });
+    setScore(0);
+    setGameOver(false);
+    setRating(0);
+    setRated(false);
+};
 
-    const renderRating = () => {
-        if (rated) {
-            return <p>Thank you for rating!</p>;
-        }
-
-        return (
-            <div className="emoji-rating">
-                {[1, 2, 3, 4, 5].map((num, i) => (
-                    <span
-                        key={i}
-                        className={`emoji ${rating >= num ? 'selected' : ''}`}
-                        onClick={() => handleStarClick(num)}
-                        style={{ fontSize: '24px' }}
-                    >
-                        {['👎', '😕', '😐', '😃', '😆'][i]}
-                    </span>
-                ))}
-            </div>
-        );
-    };
-
+const renderRating = () => {
+    if (rated) {
+        return <p>Thank you for rating!</p>;
+    }
 
     return (
-        <>
+        <div className="emoji-rating">
+            {[1, 2, 3, 4, 5].map((num, i) => (
+                <span
+                    key={i}
+                    className={`emoji ${rating >= num ? 'selected' : ''}`}
+                    onClick={() => handleStarClick(num)}
+                    style={{ fontSize: '24px' }}
+                >
+                    {['👎', '😕', '😐', '😃', '😆'][i]}
+                </span>
+            ))}
+        </div>
+    );
+};
+
+
+return (
+    <>
         <div className='game-name'>
             <h1>Snake Game</h1>
             <h2>One Pixel at a time</h2>
         </div>
-            <div className="snake-game-container">
-                {/* Hidden Audio Element */}
-                <audio ref={eatSoundRef}>
-                    <source src="/audios/pop.mp3" type="audio/mpeg" />
-                </audio>
+        <div className="snake-game-container">
+            {/* Hidden Audio Element */}
+            <audio ref={eatSoundRef}>
+                <source src="/audios/pop.mp3" type="audio/mpeg" />
+            </audio>
 
-                <div className="snake-game">
-                    {Array.from({ length: GRID_SIZE }, (_, rowIndex) => (
-                        <div key={rowIndex} className="s-row">
-                            {Array.from({ length: GRID_SIZE }, (_, colIndex) => (
-                                <div
-                                    key={colIndex}
-                                    className={`cell ${snake.some((segment, index) => segment.x === colIndex && segment.y === rowIndex)
-                                        ? snake.findIndex(seg => seg.x === colIndex && seg.y === rowIndex) === 0
-                                            ? `snake-head ${snake[0].direction.x === 1 ? 'right' :
-                                                snake[0].direction.x === -1 ? 'left' :
-                                                    snake[0].direction.y === 1 ? 'down' :
-                                                        'up'
-                                            }`
-                                            : 'snake-body'
-                                        : food.x === colIndex && food.y === rowIndex
-                                            ? 'food'
-                                            : ''
-                                        }`}
-                                ></div>
-                            ))}
-                        </div>
-                    ))}
-                </div>
-                <div className="game-info">
-                    <p>Score: {score}</p>
-                    {gameOver && (
-                        <div className="game-over-overlay">
-                            <p>Game Over!</p>
-                            <button onClick={() => window.location.reload()}>Reset Game</button>
-                            {renderRating()}
-                        </div>
-                    )}
-                </div>
-                <p className='nophone sp-l w-300'>
+            <div className="snake-game">
+                {Array.from({ length: GRID_SIZE }, (_, rowIndex) => (
+                    <div key={rowIndex} className="s-row">
+                        {Array.from({ length: GRID_SIZE }, (_, colIndex) => (
+                            <div
+                                key={colIndex}
+                                className={`cell ${snake.some((segment, index) => segment.x === colIndex && segment.y === rowIndex)
+                                    ? snake.findIndex(seg => seg.x === colIndex && seg.y === rowIndex) === 0
+                                        ? `snake-head ${snake[0].direction.x === 1 ? 'right' :
+                                            snake[0].direction.x === -1 ? 'left' :
+                                                snake[0].direction.y === 1 ? 'down' :
+                                                    'up'
+                                        }`
+                                        : 'snake-body'
+                                    : food.x === colIndex && food.y === rowIndex
+                                        ? 'food'
+                                        : ''
+                                    }`}
+                            ></div>
+                        ))}
+                    </div>
+                ))}
+            </div>
+            <div className="game-info">
+                <p>Score: {score}</p>
+                {gameOver && (
+                    <div className="game-over-overlay">
+                        <p>Game Over!</p>
+                        <button onClick={() => window.location.reload()}>Reset Game</button>
+                        {renderRating()}
+                    </div>
+                )}
+            </div>
+            <p className='nophone sp-l w-300'>
                 <strong>Snake Game</strong> is a video game which was released somewhere near 1970s in arcade. It stayed popular for a long time ever since. When it became pre-loaded game on Nokia phone in 1998, Snake found a good fanbase.
                 Player create long thin creature, resembling a snake chasing pixels of 'food' and desperately avoiding the walls and its own tail.  It wasn't just a game; it was a cultural phenomenon, a shared memory for an entire generation, teaching us about strategy, quick reflexes, and the crushing despair of hitting your own body just inches from a new high score.
                 <div>Can you beat your own <strong>high score?</strong></div>
@@ -272,7 +250,7 @@ const SnakeGame = () => {
                 <ul>
                     <li>You can <strong>Swipe</strong> the snake to move it in the respective direction.</li>
                 </ul>
-                    <h4>For windows</h4>
+                <h4>For windows</h4>
                 <ol>
                     <li>You can use Arrow keys to move the snake in the respective directions.</li>
                     <li>Alternative keys</li>
@@ -283,11 +261,11 @@ const SnakeGame = () => {
                         <li><strong>S</strong> to move down</li>
                     </ul>
                 </ol>
-            
+
             </p>
-            </div>
-        </>
-    );
+        </div>
+    </>
+);
 };
 
 export default SnakeGame;
