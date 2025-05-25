@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useSEO } from '../hooks/useSEO';
 import './SnakeGame.css';
 
 const GRID_SIZE = 20;
@@ -145,14 +144,47 @@ const SnakeGame = () => {
         };
     }, [direction]);
 
-    useSEO({
-        title: 'Snake Game - One Pixel at a time',
-        description: 'Play the classic Snake game for free online at Spiele Zone by Shadowveil StudioZ. Move the snake, eat the food, and avoid hitting walls!',
-        canonical: 'https://spiele-zone.vercel.app/snake',
-        keywords: 'Snake game, online games, spiele zone, classic arcade, snake game shadowveil studioZ',
-        ogImage: 'https://spiele-zone.vercel.app/og/snake-game.png' // if you have one
-    });
+    // ✅ SEO tags injected dynamically
+    useEffect(() => {
+        const prevTitle = document.title;
+        const prevDesc = document.querySelector("meta[name='description']")?.getAttribute('content');
 
+        // Set new SEO title & description
+        document.title = 'Snake Game - Spiele Zone by Shadowveil StudioZ';
+        let descTag = document.querySelector("meta[name='description']");
+        if (!descTag) {
+            descTag = document.createElement('meta');
+            descTag.name = 'description';
+            document.head.appendChild(descTag);
+        }
+        descTag.setAttribute('content', 'Play the classic Snake game online for free at Spiele Zone by Shadowveil StudioZ! Swipe to combine numbers and reach 2048.');
+        let KeyWords = document.querySelector("meta[name='keywords']");
+        if (!KeyWords) {
+            KeyWords = document.createElement('meta');
+            KeyWords.name = 'keywords';
+            document.head.appendChild(KeyWords);
+        }
+        KeyWords.setAttribute('content', 'Snake Game, Nostlagic Snake Game, Snake Game by Shadowveil StudioZ, Spiele zone snake');
+
+        // Canonical link
+        let canonical = document.querySelector("link[rel='canonical']");
+        if (!canonical) {
+            canonical = document.createElement('link');
+            canonical.rel = 'canonical';
+            document.head.appendChild(canonical);
+        }
+        canonical.setAttribute('href', 'https://spiele-zone.vercel.app/snake');
+
+        return () => {
+            document.title = prevTitle;
+            if (descTag && prevDesc) {
+                descTag.setAttribute('content', prevDesc);
+            }
+            if (canonical) {
+                canonical.setAttribute('href', 'https://spiele-zone.vercel.app/');
+            }
+        };
+    }, []);
     const handleStarClick = (selectedRating) => {
         setRating(selectedRating);
         setRated(true);
