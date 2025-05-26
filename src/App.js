@@ -7,7 +7,8 @@ import Tzfe from './components/tzfe';
 import SnakeGame from './components/SnakeGame';
 import Hangman from './components/Hangman';
 import BBar from './components/Bottombar';
-
+import GCintro from './components/Ghostcode-intro'
+import GCplay from './components/GC'
 import Prpo from './components/prpo'
 import AU from './components/aboutus'
 
@@ -25,6 +26,8 @@ function App() {
           <Route path="/privacy-policy" element={<Prpo />} />
           <Route path="/about-us" element={<AU />} />
           <Route path="/reach-us" element={<CU />} />
+          <Route path="/ghost-code" element={<GCintro />} />
+          <Route path="/ghost-code/play" element={<GCplay />} />
         </Routes>
         <BBar />
       </Router>
