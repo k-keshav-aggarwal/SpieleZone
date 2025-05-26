@@ -13,7 +13,7 @@ const GCintro = () => {
             <h3>How to play</h3>
             <p>Cloud with words will fall down and you need to type the word before they hit you.</p>
             <h4>Good Luck</h4>
-            <a href='/gc/play' className='glitch' data-glitch='Play'>Play</a>
+            <a href='/ghost-code/play' className='glitch' data-glitch='Play'>Play</a>
         </div>
         </>
         
