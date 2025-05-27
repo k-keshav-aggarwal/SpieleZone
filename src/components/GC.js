@@ -51,7 +51,7 @@ const GhostCode = () => {
     const handleInput = (event) => {
         setCurrentWord(event.target.value);
 
-        if (words.some((word) => word.texttoLowerCase() === event.target.value)) {
+        if (words.some((word) => word.text.toLowerCase() === event.target.value)) {
             setWords(words.filter((word) => word.text !== event.target.value));
             setScore(score + 1);
             setCurrentWord("");
