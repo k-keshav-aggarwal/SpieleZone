@@ -8,6 +8,7 @@ export default function Navbar() {
             <div><Link title='2048 game' to="/tzfe">2048</Link></div>
             <div><Link title='Nostalgic Snake game' to="/snake">Snake Game</Link></div>
             <div><Link title='Not so Classic Hangman' to="/hm">Hangman</Link></div>
+            <div><Link title='New and Unique typing game' to="//ghost-code">Ghost code</Link></div>
         </nav>
     );
 }
