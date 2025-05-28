@@ -49,14 +49,16 @@ const GhostCode = () => {
     }, [words, gameOver]);
 
     const handleInput = (event) => {
-        setCurrentWord(event.target.value);
+    const typedWord = event.target.value.toLowerCase(); // Convert input to lowercase
+    setCurrentWord(typedWord);
 
-        if (words.some((word) => word.text === event.target.value)) {
-            setWords(words.filter((word) => word.text !== event.target.value));
-            setScore(score + 1);
-            setCurrentWord("");
-        }
-    };
+    if (words.some((word) => word.text.toLowerCase() === typedWord)) { // Convert words to lowercase
+        setWords(words.filter((word) => word.text.toLowerCase() !== typedWord));
+        setScore(score + 1);
+        setCurrentWord("");
+    }
+};
+
 
     const restartGame = () => {
         setWords([]);
