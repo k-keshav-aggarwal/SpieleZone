@@ -59,6 +59,47 @@ const GhostCode = () => {
     }
 };
 
+    // ✅ SEO tags injected dynamically
+    useEffect(() => {
+        const prevTitle = document.title;
+        const prevDesc = document.querySelector("meta[name='description']")?.getAttribute('content');
+
+        // Set new SEO title & description
+        document.title = 'Ghost Code - Defend the realms|| Spiele Zone';
+        let descTag = document.querySelector("meta[name='description']");
+        if (!descTag) {
+            descTag = document.createElement('meta');
+            descTag.name = 'description';
+            document.head.appendChild(descTag);
+        }
+        descTag.setAttribute('content', 'Ghostly threats are descending from the veil. Each word you type pushes back the shadows. Can your typing banish them in time?');
+        let KeyWords = document.querySelector("meta[name='keywords']");
+        if (!KeyWords) {
+            KeyWords = document.createElement('meta');
+            KeyWords.name = 'keywords';
+            document.head.appendChild(KeyWords);
+        }
+        KeyWords.setAttribute('content', 'Ghost Code, ghost Code by Shadowveil StudioZ, Ghost Code Spiele Zone, Ghost Code typing game');
+
+        // Canonical link
+        let canonical = document.querySelector("link[rel='canonical']");
+        if (!canonical) {
+            canonical = document.createElement('link');
+            canonical.rel = 'canonical';
+            document.head.appendChild(canonical);
+        }
+        canonical.setAttribute('href', 'https://spiele-zone.vercel.app/ghost-code/play');
+
+        return () => {
+            document.title = prevTitle;
+            if (descTag && prevDesc) {
+                descTag.setAttribute('content', prevDesc);
+            }
+            if (canonical) {
+                canonical.setAttribute('href', 'https://spiele-zone.vercel.app/');
+            }
+        };
+    }, []);
 
     const restartGame = () => {
         setWords([]);

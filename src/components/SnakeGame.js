@@ -157,7 +157,7 @@ const SnakeGame = () => {
             descTag.name = 'description';
             document.head.appendChild(descTag);
         }
-        descTag.setAttribute('content', 'Play the classic Snake game online for free at Spiele Zone by Shadowveil StudioZ! Swipe to combine numbers and reach 2048.');
+        descTag.setAttribute('content', 'Play the classic Snake game online for free at Spiele Zone by Shadowveil StudioZ!');
         let KeyWords = document.querySelector("meta[name='keywords']");
         if (!KeyWords) {
             KeyWords = document.createElement('meta');
@@ -185,6 +185,7 @@ const SnakeGame = () => {
             }
         };
     }, []);
+
     const handleStarClick = (selectedRating) => {
         setRating(selectedRating);
         setRated(true);
