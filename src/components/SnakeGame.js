@@ -231,7 +231,7 @@ const SnakeGame = () => {
             <div className="snake-game-container">
                 {/* Hidden Audio Element */}
                 <audio ref={eatSoundRef}>
-                    <source src="/audios/pop.mp3" type="audio/mpeg" />
+                    <source src="/audios/gulp.mp3" type="audio/mpeg" />
                 </audio>
 
                 <div className="snake-game">
