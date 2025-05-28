@@ -40,22 +40,14 @@ const SnakeGame = () => {
 
         if (head.x < 0 || head.x >= GRID_SIZE || head.y < 0 || head.y >= GRID_SIZE) {
             setGameOver(true);
-            gtag('event', 'game_over', {
-        'game_name': 'Snake',
-        'score': score,
-        'reason_ended': 'hit_boundary'
-    });
+            
             return;
         }
 
         for (let i = 1; i < newSnake.length; i++) {
             if (head.x === newSnake[i].x && head.y === newSnake[i].y) {
                 setGameOver(true);
-                gtag('event', 'game_over', {
-            'game_name': 'Snake',
-            'score': score, 
-            'reason_ended': 'hit_self'
-        });
+                
                 return;
             }
         }
