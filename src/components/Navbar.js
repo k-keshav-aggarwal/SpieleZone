@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 
-function trackGameStart(gameName) {
+() => trackGameStart(gameName) {
     if (typeof gtag === 'function') {
         gtag('event', 'game_start', {
             'game_name': gameName
         });
-        console.log('GA4 Event: game_start, Game:', gameName); // For debugging
+        console.log('GA4 Event: game_start, Game:', gameName); 
     } else {
         console.warn('gtag function not found. GA4 tracking may not be set up correctly.');
     }
