@@ -1,5 +1,5 @@
-import React from 'react'
-import './gc1.css'
+import React, { useState, useEffect } from "react";
+import './gc1.css';
 
 const GCintro = () => {
     // ✅ SEO tags injected dynamically
