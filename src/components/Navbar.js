@@ -1,3 +1,4 @@
+/* global gtag */
 import { Link } from 'react-router-dom';
 
 function trackGameStart(gameName) {
