@@ -1,5 +1,17 @@
+/* global gtag */
 import React, { useState, useEffect } from "react";
 import './gc1.css';
+
+function trackGameStart(gameName) {
+    if (typeof gtag === 'function') {
+        gtag('event', 'game_start', {
+            'game_name': gameName
+        });
+        console.log('GA4 Event: game_start, Game:', gameName);
+    } else {
+        console.warn('gtag function not found. GA4 tracking may not be set up correctly.');
+    }
+}
 
 const GCintro = () => {
     // ✅ SEO tags injected dynamically
@@ -55,7 +67,7 @@ const GCintro = () => {
             <h3>How to play</h3>
             <p>Cloud with words will fall down and you need to type the word before they hit you.</p>
             <h4>Good Luck</h4>
-            <a href='/ghost-code/play' className='glitch' data-glitch='Play'>Play</a>
+            <a href='/ghost-code/play' className='glitch' data-glitch='Play' onClick={() => trackGameStart('ghostcode')}>Play</a>
         </div>
         </>
         
