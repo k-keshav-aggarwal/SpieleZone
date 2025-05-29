@@ -65,7 +65,7 @@ const GhostCode = () => {
         const prevDesc = document.querySelector("meta[name='description']")?.getAttribute('content');
 
         // Set new SEO title & description
-        document.title = 'Ghost Code - Defend the realms|| Spiele Zone';
+        document.title = 'Ghost Code || Spiele Zone || Shadowveil StudioZ';
         let descTag = document.querySelector("meta[name='description']");
         if (!descTag) {
             descTag = document.createElement('meta');
