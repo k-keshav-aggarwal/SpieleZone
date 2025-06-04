@@ -21,3 +21,67 @@ code {
   align-items: baseline;
   gap: 5px;
 }
+
+
+.game-tile-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+}
+
+.game-tile {
+  height: 7rem;
+  width: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.gtitle {
+  background: #000000ad;
+  color: aliceblue;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  padding: 3px;
+}
+
+.t2048 {
+  background-image: url('../public/media/2048.png');
+  background-size: cover;
+  background-position: center;
+}
+.tsnake {
+  background-image: url('../public/media/snake.png');
+  background-size: cover;
+  background-position: center;
+}
+.thangman {
+  background-image: url('../public/media/Hangman.png');
+  background-size: cover;
+  background-position: center;
+}
+.tgc {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgXyY3YghqA-XEQJ1bd9ZyObbVRXASuGjEmw&s');
+  background-size: cover;
+  background-position: center;
+}
+.tbounce {
+  background-image: url('../public/media/bounce.png');
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+/* https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgXyY3YghqA-XEQJ1bd9ZyObbVRXASuGjEmw&s */
+
+.zoom {
+  transition: transform 0.3s ease;
+}
+
+.zoom:hover {
+  transform: scale(1.25);
+}
