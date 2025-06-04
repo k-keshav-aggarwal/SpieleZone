@@ -14,7 +14,7 @@ import AU from './components/aboutus'
 
 import CU from './components/contact'
 
-import AdWidget from '/components/ads'
+import AdWidget from '/ads'
 
 function App() {
   return (
