@@ -14,8 +14,6 @@ import AU from './components/aboutus'
 
 import CU from './components/contact'
 
-import AdWidget from './ads'
-
 function App() {
   return (
       <Router>
