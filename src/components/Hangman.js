@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Hangman.css';
 import words from '../words.json';
+import AdWidget from '../ads.js';
 
 const Hangman = () => {
     const getRandomWord = () => {
