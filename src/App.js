@@ -14,6 +14,7 @@ import GCplay from './components/GC'
 import Prpo from './components/prpo'
 import AU from './components/aboutus'
 import BounceGame from './components/bounce/bounce';
+import DonateButton from './components/bmac';
 
 import CU from './components/contact'
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/ghost-code/play" element={<GCplay />} />
           <Route path='/bounce' element={<BounceGame/>}/>
         </Routes>
+        <DonateButton/>
         <BBar />
       </Router>
     
