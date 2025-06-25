@@ -1,45 +1,155 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import logo from './logo.svg';
-import './App.css';
-import Navbar from './components/Navbar';
-import Homepg from './components/homepg';
+/* @import "tailwindcss"; */
 
-import Home2 from './components/home2';
-import Tzfe from './components/tzfe';
-import SnakeGame from './components/SnakeGame';
-import Hangman from './components/Hangman';
-import BBar from './components/Bottombar';
-import GCintro from './components/Ghostcode-intro'
-import GCplay from './components/GC'
-import Prpo from './components/prpo'
-import AU from './components/aboutus'
-import BounceGame from './components/bounce/bounce';
-import DonateButton from './components/bmac';
-
-import CU from './components/contact'
-
-function App() {
-  return (
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" exact element={<Homepg />} />
-          <Route path="/home" element={<Home2 />} />
-          <Route path="/tzfe" element={<Tzfe />} />
-          <Route path="/snake" element={<SnakeGame />} />
-          <Route path="/hm" element={<Hangman />} />
-          <Route path="/privacy-policy" element={<Prpo />} />
-          <Route path="/about-us" element={<AU />} />
-          <Route path="/reach-us" element={<CU />} />
-          <Route path="/ghost-code" element={<GCintro />} />
-          <Route path="/ghost-code/play" element={<GCplay />} />
-          <Route path='/bounce' element={<BounceGame/>}/>
-        </Routes>
-        <DonateButton/>
-        <BBar />
-      </Router>
-    
-  );
+.App {
+  text-align: center;
 }
 
-export default App;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bar {
+  background-color: rgb(7, 7, 7);
+  color: aliceblue;
+  width: 99vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+}
+
+.bar a {
+  color: lavender;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+}
+
+.whitespace{
+  height: 8vh;
+}
+
+.game-over-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    z-index: 10;
+}
+
+.game-over-overlay p {
+    margin-bottom: 20px;
+}
+
+.game-over-overlay button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.game-over-overlay button:hover {
+    background-color: #0056b3;
+}
+
+.emoji-rating {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.emoji {
+    cursor: pointer;
+    margin: 0 5px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.emoji:hover {
+    transform: scale(1.2);
+}
+
+.emoji.selected {
+    color: #ffd700;
+}
+
+.donate-button {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  background-color: #ffdd57;
+  color: #000;
+  font-weight: bold;
+  font-size: 12px;
+  border: 3px solid #404040;
+  border-style: dashed;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 45px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.donate-button:hover {
+  background-color: #ffd43b;
+}
+
+
+@media screen and (max-width: 770px) {
+  .nophone{
+    display: none;
+  }
+  .game-name{
+    display: contents;
+  }
+
+}
