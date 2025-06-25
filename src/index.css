@@ -43,17 +43,17 @@ code {
 
 
 .t2048 {
-  background-image: url('/public/media/2048.png');
+  background-image: url('/public/images/2048.png');
   background-size: cover;
   background-position: center;
 }
 .tsnake {
-  background-image: url('/public/media/snake.png');
+  background-image: url('/public/images/snake.png');
   background-size: cover;
   background-position: center;
 }
 .thangman {
-  background-image: url('/public/media/Hangman.png');
+  background-image: url('/public/images/Hangman.png');
   background-size: cover;
   background-position: center;
 }
@@ -63,7 +63,7 @@ code {
   background-position: center;
 }
 .tbounce {
-  background-image: url('/public/media/bounce.png');
+  background-image: url('/public/images/bounce.png');
   background-size: cover;
   background-position: center;
 }
