@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-decoration: none;
 }
 
 code {
@@ -13,24 +12,23 @@ code {
     monospace;
 }
 
-.w-300 {
+.w-300{
   max-width: 300px;
 }
 
-.game-name {
+.game-name{
   display: flex;
   align-items: baseline;
   gap: 5px;
 }
+
 
 .game-tile-con {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  flex-wrap: wrap; /*imp*/
   list-style: none;
-  padding: 0;
 }
 
 .game-tile {
@@ -41,19 +39,27 @@ code {
   align-items: end;
 }
 
+.gtitle {
+  background: #000000ad;
+  color: aliceblue;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  padding: 3px;
+}
 
 .t2048 {
-  background-image: url('../public/media/2048.png');
+  background-image: url('/public/images/2048.png');
   background-size: cover;
   background-position: center;
 }
 .tsnake {
-  background-image: url('../public/media/snake.png');
+  background-image: url('/public/images/snake.png');
   background-size: cover;
   background-position: center;
 }
 .thangman {
-  background-image: url('../public/media/Hangman.png');
+  background-image: url('/public/images/Hangman.png');
   background-size: cover;
   background-position: center;
 }
@@ -63,7 +69,7 @@ code {
   background-position: center;
 }
 .tbounce {
-  background-image: url('../public/media/bounce.png');
+  background-image: url('../public/images/bounce.png');
   background-size: cover;
   background-position: center;
 }
@@ -71,42 +77,6 @@ code {
 
 
 /* https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgXyY3YghqA-XEQJ1bd9ZyObbVRXASuGjEmw&s */
-
-
-@media (max-width: 768px) {
-  .game-tile {
-    height: 5rem;
-    width: 5rem;
-  }
-
-  .gtitle {
-    font-size: 12px;
-    padding: 2px;
-  }
-
-  .game-tile-con {
-    gap: 0.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .game-tile-con {
-    gap: 0.75rem;
-    justify-content: center;
-  }
-
-  .game-tile {
-    height: 4rem;
-    width: 4rem;
-  }
-
-  .gtitle {
-    font-size: 10px;
-    padding: 0.2rem;
-    text-align: center;
-  }
-}
-
 
 .zoom {
   transition: transform 0.3s ease;
