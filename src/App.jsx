@@ -12,6 +12,7 @@ import AU from './components/pages/AboutPage.jsx';
 import BounceGame from './components/games/bounce/bounce.jsx';
 import DonateButton from './components/Donate.jsx';
 import CU from './components/pages/ContactPage.jsx';
+import Tzfe from './components/games/game-2048/Game2048.jsx';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Homepg />} />
         <Route path="/home" exact element={<Homepg />} />
+        <Route path="/tzfe" element={<Tzfe />} />
         <Route path="/snake" element={<SnakeGame />} />
         <Route path="/hm" element={<Hangman />} />
         <Route path="/privacy-policy" element={<Prpo />} />
