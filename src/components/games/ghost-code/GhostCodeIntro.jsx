@@ -1,10 +1,9 @@
-/* global gtag */
 import {useEffect } from "react";
-import './gc1.css';
+import './GhostCode.css';
 
 function trackGameStart(gameName) {
-    if (typeof gtag === 'function') {
-        gtag('event', 'game_start', {
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'game_start', {
             'game_name': gameName
         });
         console.log('GA4 Event: game_start, Game:', gameName);

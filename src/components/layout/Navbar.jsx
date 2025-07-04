@@ -1,9 +1,8 @@
-/* global gtag */
 import { Link } from 'react-router-dom';
 
 function trackGameStart(gameName) {
-    if (typeof gtag === 'function') {
-        gtag('event', 'game_start', {
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'game_start', {
             'game_name': gameName
         });
         console.log('GA4 Event: game_start, Game:', gameName);

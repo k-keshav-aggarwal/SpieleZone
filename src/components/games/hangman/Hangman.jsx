@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import './Hangman.css';
-import words from '../words.json';
+import words from '../../../assets/words.json';
 
 const Hangman = () => {
     const getRandomWord = () => {

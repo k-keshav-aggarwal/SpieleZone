@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import "./gc1.css";
-import wordList from "../words.json";
+import { useState, useEffect } from "react";
+import wordList from "../../../assets/words.json";
+import "./GhostCode.css";
 
 const GhostCode = () => {
     const [words, setWords] = useState([]);

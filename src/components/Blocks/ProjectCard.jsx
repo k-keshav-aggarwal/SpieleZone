@@ -1,4 +1,3 @@
-// components/ProjectCard.jsx
 const ProjectCard = ({ title, description, tags = [], links = {} }) => {
   return (
     <div className="bg-[#1e293b] rounded-2xl shadow-md p-6 hover:shadow-blue-500/30 transition duration-300">

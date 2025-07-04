@@ -1,19 +1,17 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Navbar from './components/Navbar.jsx';
-import Homepg from './components/homepg.jsx';
-import Home2 from './components/home2.jsx';
-import Tzfe from './components/tzfe.jsx';
-import SnakeGame from './components/SnakeGame.jsx';
-import Hangman from './components/Hangman.jsx';
-import BBar from './components/Bottombar.jsx';
-import GCintro from './components/Ghostcode-intro.jsx';
-import GCplay from './components/GC.jsx';
+import Navbar from './components/layout/Navbar.jsx';
+import Homepg from './components/pages/HomePage.jsx';
+import SnakeGame from './components/games/snake/SnakeGame.jsx';
+import Hangman from './components/games/hangman/Hangman.jsx';
+import BBar from './components/layout/BottomBar.jsx';
+import GCintro from './components/games/ghost-code/GhostCodeIntro.jsx';
+import GCplay from './components/games/ghost-code/GhostCode.jsx';
 import Prpo from './components/prpo.jsx';
-import AU from './components/aboutus.jsx';
-import BounceGame from './components/bounce/bounce.jsx';
-import DonateButton from './components/bmac.jsx';
-import CU from './components/contact.jsx';
+import AU from './components/pages/AboutPage.jsx';
+import BounceGame from './components/games/bounce/bounce.jsx';
+import DonateButton from './components/Donate.jsx';
+import CU from './components/pages/ContactPage.jsx';
 
 function App() {
   return (
@@ -21,8 +19,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" exact element={<Homepg />} />
-        <Route path="/home" element={<Home2 />} />
-        <Route path="/tzfe" element={<Tzfe />} />
+        <Route path="/home" exact element={<Homepg />} />
         <Route path="/snake" element={<SnakeGame />} />
         <Route path="/hm" element={<Hangman />} />
         <Route path="/privacy-policy" element={<Prpo />} />

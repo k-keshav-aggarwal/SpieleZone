@@ -1,4 +1,3 @@
-// components/ProjectsGrid.jsx
 import ProjectCard from "./ProjectCard.jsx";
 
 const ProjectsGrid = ({ projects }) => {

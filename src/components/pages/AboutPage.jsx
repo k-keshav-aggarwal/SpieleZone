@@ -1,6 +1,6 @@
-import AboutSection from "./abc/AboutSection.jsx";
-import ContactBlock from "./abc/ContactBlock.jsx";
-import ProjectsGrid from "./abc/ProjectsGrid.jsx";
+import AboutSection from "../Blocks/AboutSection.jsx";
+import ContactBlock from "../Blocks/ContactBlock.jsx";
+import ProjectsGrid from "../Blocks/ProjectsGrid.jsx";
 
 const AboutUs = () => {
   const projectTiles = [

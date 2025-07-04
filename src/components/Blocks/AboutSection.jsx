@@ -1,4 +1,3 @@
-// components/AboutSection.jsx
 const AboutSection = () => {
   return (
     <section className="text-gray-300 space-y-4">

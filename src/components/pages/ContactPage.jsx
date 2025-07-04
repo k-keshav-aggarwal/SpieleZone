@@ -1,4 +1,3 @@
-import React from 'react';
 import { Mail, MessageCircle, Gamepad2 } from 'lucide-react';
 
 const ContactUs = () => {

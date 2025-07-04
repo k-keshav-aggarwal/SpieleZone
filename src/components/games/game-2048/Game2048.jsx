@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import './Tzfe.css';
+import './Game2048.css';
 
-// --- Pure Functions Moved Outside ---
 const rotateLeft = (board) => board[0].map((_, i) => board.map(row => row[3 - i]));
 const rotateRight = (board) => board[0].map((_, i) => board.map(row => row[i]).reverse());
 
