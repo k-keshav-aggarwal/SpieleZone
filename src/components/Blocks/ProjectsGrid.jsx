@@ -1,27 +1,24 @@
 const ProjectsGrid = ({ projects }) => {
   return (
-    <section>
-      <h2 className="text-3xl font-semibold text-blue-300 mb-8 text-center">
-        🛠️ Featured Projects
-      </h2>
-      <div className="grid md:grid-cols-3 gap-6">
+    <section className="mt-10">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
         {projects.map((project, index) => (
           <a
             key={index}
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-[#1e293b] rounded-xl p-6 shadow-md hover:shadow-blue-500/30 transition group"
+            className="bg-[#1a1a1a] border border-purple-600 p-4 rounded-lg shadow-lg hover:shadow-purple-500/50 transition duration-300"
           >
-            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400">
+            <h3 className="text-pink-300 text-sm uppercase mb-2">
               {project.title}
             </h3>
-            <p className="text-sm text-gray-300 mb-2">{project.desc}</p>
-            <div className="flex flex-wrap gap-2 mt-2">
+            <p className="text-green-200 text-xs">{project.desc}</p>
+            <div className="flex gap-2 mt-3 flex-wrap">
               {project.tags.map((tag, i) => (
                 <span
                   key={i}
-                  className="text-xs bg-blue-800 text-blue-200 px-2 py-1 rounded-full"
+                  className="bg-purple-800 text-purple-200 px-2 py-0.5 rounded text-[10px]"
                 >
                   {tag}
                 </span>
