@@ -60,7 +60,7 @@ const createBoard = () => {
 };
 
 // --- Component ---
-const Tzfe = () => {
+const Game2048 = () => {
     const [board, setBoard] = useState(createBoard());
     const [gameOver, setGameOver] = useState(false);
     const [rating, setRating] = useState(0);
@@ -205,4 +205,4 @@ const Tzfe = () => {
     );
 };
 
-export default Tzfe;
+export default Game2048;

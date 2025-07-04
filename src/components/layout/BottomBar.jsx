@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Info, ShieldCheck, Mail } from 'lucide-react';
 
-export default function Navbar() {
+export default function BottomBar() {
     return (
         <footer className="w-full bg-gray-900 text-white py-6">
             <div className="max-w-6xl mx-auto flex justify-center gap-10 items-center">

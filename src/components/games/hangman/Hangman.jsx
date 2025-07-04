@@ -15,20 +15,15 @@ const Hangman = () => {
     const [won, setWon] = useState(false);
 
     const handleGuess = useCallback((letter) => {
-        setGuesses((prevGuesses) => {
-            if (prevGuesses.includes(letter) || remainingAttempts <= 0 || gameOver || won) {
-                return prevGuesses;
-            }
-
-            const updatedGuesses = [...prevGuesses, letter];
-
-            if (!word.includes(letter)) {
-                setRemainingAttempts((prev) => prev - 1);
-            }
-
-            return updatedGuesses;
-        });
-    }, [remainingAttempts, gameOver, won, word]);
+        if (guesses.includes(letter) || remainingAttempts <= 0 || gameOver || won) {
+            return;
+        }
+        const updatedGuesses = [...guesses, letter];
+        setGuesses(updatedGuesses);
+        if (!word.includes(letter)) {
+            setRemainingAttempts((prev) => prev - 1);
+        }
+    }, [guesses, remainingAttempts, gameOver, won, word]);
 
     const handleKeyPress = useCallback((e) => {
         const letter = e.key.toLowerCase();
