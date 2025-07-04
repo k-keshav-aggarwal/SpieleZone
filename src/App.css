@@ -1,8 +1,4 @@
-/* @import "tailwindcss"; */
-
-.App {
-  text-align: center;
-}
+.App { text-align: center; }
 
 .App-logo {
   height: 40vmin;
@@ -119,7 +115,7 @@ footer {
 
 .donate-button {
   position: fixed;
-  bottom: 30px;
+  bottom: 80px;
   right: 20px;
   width: 45px;
   height: 45px;
@@ -143,7 +139,6 @@ footer {
   background-color: #ffd43b;
 }
 
-
 @media screen and (max-width: 770px) {
   .nophone{
     display: none;
@@ -151,5 +146,13 @@ footer {
   .game-name{
     display: contents;
   }
-
+  
+  .donate-button {
+    bottom: 70px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 10px;
+  }
 }

@@ -1,19 +1,19 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Navbar from './components/Navbar';
-import Homepg from './components/homepg';
-import Home2 from './components/home2';
-import Tzfe from './components/tzfe';
-import SnakeGame from './components/SnakeGame';
-import Hangman from './components/Hangman';
-import BBar from './components/Bottombar';
-import GCintro from './components/Ghostcode-intro';
-import GCplay from './components/GC';
-import Prpo from './components/prpo';
-import AU from './components/aboutus';
-import BounceGame from './components/bounce/bounce';
-import DonateButton from './components/bmac';
-import CU from './components/contact';
+import Navbar from './components/Navbar.jsx';
+import Homepg from './components/homepg.jsx';
+import Home2 from './components/home2.jsx';
+import Tzfe from './components/tzfe.jsx';
+import SnakeGame from './components/SnakeGame.jsx';
+import Hangman from './components/Hangman.jsx';
+import BBar from './components/Bottombar.jsx';
+import GCintro from './components/Ghostcode-intro.jsx';
+import GCplay from './components/GC.jsx';
+import Prpo from './components/prpo.jsx';
+import AU from './components/aboutus.jsx';
+import BounceGame from './components/bounce/bounce.jsx';
+import DonateButton from './components/bmac.jsx';
+import CU from './components/contact.jsx';
 
 function App() {
   return (

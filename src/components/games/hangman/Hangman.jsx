@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './Hangman.css';
 import words from '../words.json';
 
@@ -8,27 +8,34 @@ const Hangman = () => {
         return words[randomIndex];
     };
 
-    const [word, setWord] = useState(getRandomWord());
+    const [word] = useState(getRandomWord());
     const [guesses, setGuesses] = useState([]);
     const [remainingAttempts, setRemainingAttempts] = useState(9);
     const [gameOver, setGameOver] = useState(false);
     const [won, setWon] = useState(false);
 
-    const handleGuess = (letter) => {
-        if (!guesses.includes(letter) && remainingAttempts > 0 && !gameOver && !won) {
-            setGuesses([...guesses, letter]);
-            if (!word.includes(letter)) {
-                setRemainingAttempts(remainingAttempts - 1);
+    const handleGuess = useCallback((letter) => {
+        setGuesses((prevGuesses) => {
+            if (prevGuesses.includes(letter) || remainingAttempts <= 0 || gameOver || won) {
+                return prevGuesses;
             }
-        }
-    };
 
-    const handleKeyPress = (e) => {
+            const updatedGuesses = [...prevGuesses, letter];
+
+            if (!word.includes(letter)) {
+                setRemainingAttempts((prev) => prev - 1);
+            }
+
+            return updatedGuesses;
+        });
+    }, [remainingAttempts, gameOver, won, word]);
+
+    const handleKeyPress = useCallback((e) => {
         const letter = e.key.toLowerCase();
         if (letter >= 'a' && letter <= 'z') {
             handleGuess(letter);
         }
-    };
+    }, [handleGuess]);
 
     useEffect(() => {
         const jsonLd = {
@@ -56,13 +63,12 @@ const Hangman = () => {
         };
     }, []);
 
-
     useEffect(() => {
         window.addEventListener('keydown', handleKeyPress);
         return () => {
             window.removeEventListener('keydown', handleKeyPress);
         };
-    }, [guesses, remainingAttempts]);
+    }, [handleKeyPress]);
 
     useEffect(() => {
         if (remainingAttempts === 0) {
@@ -75,24 +81,25 @@ const Hangman = () => {
     const displayWord = word.split("").map(letter => guesses.includes(letter) ? letter : "_").join(" ");
 
     return (
-        <>
-            <div className="hangman-container">
-                <h1>Hangman Game</h1>
-                <div className="word">{gameOver ? word : displayWord}</div>
-                <div className="attempts">Remaining Attempts: {remainingAttempts}</div>
-                <div className="guesses">Guessed Letters: {guesses.join(", ")}</div>
-                <div className="keyboard">
-                    {"abcdefghijklmnopqrstuvwxyz".split("").map(letter => (
-                        <button key={letter} onClick={() => handleGuess(letter)} disabled={guesses.includes(letter) || gameOver || won}>
-                            {letter}
-                        </button>
-                    ))}
-                </div>
-                {gameOver && <div className="game-over">Game Over! The word was "{word}".</div>}
-                {won && <div className="win">You win! The word was "{word}".</div>}
-                
+        <div className="hangman-container">
+            <h1>Hangman Game</h1>
+            <div className="word">{gameOver ? word : displayWord}</div>
+            <div className="attempts">Remaining Attempts: {remainingAttempts}</div>
+            <div className="guesses">Guessed Letters: {guesses.join(", ")}</div>
+            <div className="keyboard">
+                {"abcdefghijklmnopqrstuvwxyz".split("").map(letter => (
+                    <button
+                        key={letter}
+                        onClick={() => handleGuess(letter)}
+                        disabled={guesses.includes(letter) || gameOver || won}
+                    >
+                        {letter}
+                    </button>
+                ))}
             </div>
-        </>
+            {gameOver && <div className="game-over">Game Over! The word was "{word}".</div>}
+            {won && <div className="win">You win! The word was "{word}".</div>}
+        </div>
     );
 };
 
