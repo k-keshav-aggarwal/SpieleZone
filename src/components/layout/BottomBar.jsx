@@ -8,7 +8,8 @@ export default function BottomBar() {
             <Link
                     title="About Shadowveil Studio"
                     to="/about-us"
-                    description="testing meta component for links"
+                    className="flex items-center gap-2 hover:text-pink-400 transition-colors duration-200"
+                
                 >
                     <Info className="w-4 h-4" />
                     About Us
@@ -18,6 +19,7 @@ export default function BottomBar() {
             <Link
                     title="Read our privacy policy"
                     to="/privacy-policy"
+                    className="flex items-center gap-2 hover:text-pink-400 transition-colors duration-200"
                 >
                     <ShieldCheck className="w-4 h-4" />
                     Privacy Policy
@@ -27,6 +29,7 @@ export default function BottomBar() {
                 <Link
                     title="Talk to Shadowveil StudioZ"
                     to="/reach-us"
+                    className="flex items-center gap-2 hover:text-pink-400 transition-colors duration-200"
                 >
                     <Mail className="w-4 h-4" />
                     Contact Us
