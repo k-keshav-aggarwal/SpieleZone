@@ -3,33 +3,33 @@ import { Info, ShieldCheck, Mail } from 'lucide-react';
 
 export default function BottomBar() {
     return (
-        <footer className="w-full bg-black text-white py-8 border-t border-gray-800">
-            <div className="max-w-6xl mx-auto flex justify-evenly items-center">
-                <Link
+        <footer className="bar">
+            <div>
+            <Link
                     title="About Shadowveil Studio"
                     to="/about-us"
-                    className="flex flex-col items-center gap-2 text-white hover:text-lavender transition-colors duration-200"
+                    description="testing meta component for links"
                 >
-                    <Info className="w-5 h-5" />
-                    <span className="text-sm font-medium">About Us</span>
+                    <Info className="w-4 h-4" />
+                    About Us
                 </Link>
-
-                <Link
+            </div>
+            <div>
+            <Link
                     title="Read our privacy policy"
                     to="/privacy-policy"
-                    className="flex flex-col items-center gap-2 text-white hover:text-lavender transition-colors duration-200"
                 >
-                    <ShieldCheck className="w-5 h-5" />
-                    <span className="text-sm font-medium">Privacy Policy</span>
+                    <ShieldCheck className="w-4 h-4" />
+                    Privacy Policy
                 </Link>
-
+            </div>
+            <div>
                 <Link
                     title="Talk to Shadowveil StudioZ"
                     to="/reach-us"
-                    className="flex flex-col items-center gap-2 text-white hover:text-lavender transition-colors duration-200"
                 >
-                    <Mail className="w-5 h-5" />
-                    <span className="text-sm font-medium">Contact Us</span>
+                    <Mail className="w-4 h-4" />
+                    Contact Us
                 </Link>
             </div>
         </footer>
