@@ -55,6 +55,13 @@ footer {
   bottom: 0;
 }
 
+footer>div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .whitespace{
   height: 8vh;
 }
