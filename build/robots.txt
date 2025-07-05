@@ -1,7 +1,0 @@
-User-agent: *
-Disallow: /private/
-Allow: /
-
-Sitemap: https://spiele-zone.vercel.app/sitemap.xml
-Sitemap: https://spiele-zone.vercel.app/gsitemap.xml
-Sitemap: https://spiele-zone.vercel.app/sitemapin.xml
