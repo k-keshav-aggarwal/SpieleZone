@@ -55,11 +55,12 @@ footer {
   bottom: 0;
 }
 
-footer>div{
+.footer-comp{
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 
 
 .whitespace{
