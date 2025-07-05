@@ -13,22 +13,18 @@ code {
     monospace;
 }
 
-.w-300 {
-  max-width: 300px;
-}
-
 .game-name {
   display: flex;
   align-items: baseline;
   gap: 5px;
 }
 
-.game-tile-con {
+.game-tile-container {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  flex-wrap: wrap; /*imp*/
+  flex-wrap: wrap;
   list-style: none;
   padding: 0;
 }
@@ -41,77 +37,30 @@ code {
   align-items: end;
 }
 
-
-.t2048 {
-  background-image: url('/public/images/2048.png');
+.tile-2048,
+.tile-snake,
+.tile-hangman,
+.tile-guess-the-country,
+.tile-bounce {
   background-size: cover;
   background-position: center;
 }
-.tsnake {
-  background-image: url('/public/images/snake.png');
-  background-size: cover;
-  background-position: center;
-}
-.thangman {
-  background-image: url('/public/images/Hangman.png');
-  background-size: cover;
-  background-position: center;
-}
-.tgc {
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgXyY3YghqA-XEQJ1bd9ZyObbVRXASuGjEmw&s');
-  background-size: cover;
-  background-position: center;
-}
-.tbounce {
-  background-image: url('/public/images/bounce.png');
-  background-size: cover;
-  background-position: center;
-}
-
-
-
-/* https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgXyY3YghqA-XEQJ1bd9ZyObbVRXASuGjEmw&s */
-
+.tile-2048 { background-image: url('/public/images/2048.png'); }
+.tile-snake { background-image: url('/public/images/snake.png'); }
+.tile-hangman { background-image: url('/public/images/Hangman.png'); }
+.tile-guess-the-country { background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgXyY3YghqA-XEQJ1bd9ZyObbVRXASuGjEmw&s'); }
+.tile-bounce { background-image: url('/public/images/bounce.png'); }
 
 @media (max-width: 768px) {
-  .game-tile {
-    height: 5rem;
-    width: 5rem;
-  }
-
-  .gtitle {
-    font-size: 12px;
-    padding: 2px;
-  }
-
-  .game-tile-con {
-    gap: 0.5rem;
-  }
+  .game-tile { height: 5rem; width: 5rem; }
+  .game-title { font-size: 12px; padding: 2px; }
+  .game-tile-container { gap: 0.5rem; }
 }
-
 @media (max-width: 480px) {
-  .game-tile-con {
-    gap: 0.75rem;
-    justify-content: center;
-  }
-
-  .game-tile {
-    height: 4rem;
-    width: 4rem;
-  }
-
-  .gtitle {
-    font-size: 10px;
-    padding: 0.2rem;
-    text-align: center;
-  }
+  .game-tile-container { gap: 0.75rem; justify-content: center; }
+  .game-tile { height: 4rem; width: 4rem; }
+  .game-title { font-size: 10px; padding: 0.2rem; text-align: center; }
 }
 
-
-.zoom {
-  transition: transform 0.3s ease;
-}
-
-.zoom:hover {
-  transform: scale(1.25);
-}
+.zoom { transition: transform 0.3s ease; }
+.zoom:hover { transform: scale(1.25); }
