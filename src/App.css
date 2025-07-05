@@ -44,10 +44,12 @@
   justify-content: space-around;
   align-items: center;
   padding: 5px;
+  text-decoration: none;
 }
 
 .bar a {
   color: lavender;
+  text-decoration: none;
 }
 
 footer {
