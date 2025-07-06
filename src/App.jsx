@@ -11,6 +11,7 @@ import Homepg from './components/pages/HomePage.jsx';
 import AboutUs from './components/pages/AboutPage.jsx';
 import CU from './components/pages/ContactPage.jsx';
 import Prpo from './components/PrivacyPolicy.jsx';
+import Home2 from './components/pages/home2.jsx'
 
 // Games
 import Game2048 from './components/games/game-2048/Game2048.jsx';
@@ -36,7 +37,7 @@ function App() {
         <Routes>
           {/* Homepage */}
           <Route path="/" element={<Homepg />} />
-          <Route path="/home" element={<Homepg />} />
+          <Route path="/home" element={<Home2 />} />
 
           {/* Game Routes */}
           <Route path="/Game2048" element={<Game2048 />} />
