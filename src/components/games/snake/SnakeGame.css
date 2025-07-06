@@ -1,8 +1,10 @@
+
 .snake-game-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    padding: 0 15px;
 }
 
 .snake-game {
@@ -38,15 +40,12 @@
 .snake-head.up {
     transform: rotate(0deg);
 }
-
 .snake-head.down {
     transform: rotate(180deg);
 }
-
 .snake-head.left {
     transform: rotate(-90deg);
 }
-
 .snake-head.right {
     transform: rotate(90deg);
 }
@@ -69,19 +68,54 @@
     color: #555;
 }
 
-.sp-l{
-    position: absolute;
-    left: 0;
+.info-section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+    padding: 0 15px;
 }
 
-.sp-r{
+.sp-l {
+    position: absolute;
+    left: 0;
+    top: 115px;
+}
+
+.sp-r {
     position: absolute;
     right: 0;
-    top: 100;
+    top: 100px;
+}
+
+.w-300 {
+    max-width: 300px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.6;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
 }
 
 @media screen and (max-width: 770px) {
-    .sp-r{
+    .sp-l,
+    .sp-r {
         position: static;
+        margin: 10px auto;
+        width: 90%;
+    }
+
+    .info-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .snake-game {
+        scale: 0.9;
     }
 }
