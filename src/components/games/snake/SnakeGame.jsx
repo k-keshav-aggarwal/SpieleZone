@@ -248,17 +248,25 @@ const SnakeGame = () => {
                     <div>Can you beat your own <strong>high score?</strong></div>
                 </p>
 
-                <div className='snake-para w-300 sp-r'>
+                <p className='snake-para w-300 sp-r'>
                     <h3>Snake Game Controls</h3>
                     <h4>For Mobile Phones</h4>
                     <ul>
-                        <li><strong>Swipe</strong> to move the snake in respective directions.</li>
+                        <li>You can <strong>Swipe</strong> the snake to move it in the respective direction.</li>
                     </ul>
-                    <h4>For Windows</h4>
+                    <h4>For windows</h4>
                     <ol>
-                        <li>Use Arrow keys or W/A/S/D to control the snake.</li>
+                        <li>You can use Arrow keys to move the snake in the respective directions.</li>
+                        <li>Alternative keys</li>
+                        <ul>
+                            <li><strong>W</strong> to move UP</li>
+                            <li><strong>A</strong> to move Left</li>
+                            <li><strong>D</strong> to move Right</li>
+                            <li><strong>S</strong> to move down</li>
+                        </ul>
                     </ol>
-                </div>
+
+                </p>
             </div>
         </>
     );
