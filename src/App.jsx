@@ -40,7 +40,7 @@ function App() {
           <Route path="/home" element={<Home2 />} />
 
           {/* Game Routes */}
-          <Route path="/Game2048" element={<Game2048 />} />
+          <Route path="/tzfe" element={<Game2048 />} />
           <Route path="/Snake" element={<SnakeGame />} />
           <Route path="/HangMan" element={<Hangman />} />
           <Route path="/ghost-code" element={<GCintro />} />
