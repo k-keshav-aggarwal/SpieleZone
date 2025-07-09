@@ -1,44 +1,72 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  color: #f0f0f0;
+  background-color: #0d0d0d;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #00f0ff;
+  text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #c0c0ff;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.1rem;
+}
 
 .sh1 {
-  color: #00ffff;
+  color: #00f0ff;
 }
-
 .sh2 {
-  color: #00ff00;
+  color: #00ffee;
+}
+.sh3 {
+  color: #00ddff;
 }
 
-.sh3 {
-  color: #ccff00;
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #dddddd;
+  margin-bottom: 1.2rem;
+}
+
+h3, h4 {
+  margin-top: 2rem;
+  color: #ffcc00;
 }
 
 .glitch {
-  position: relative;
-  color: #00ffff;
-  font-family: 'Press Start 2P', monospace;
-  text-decoration: none;
-  font-size: 1.2rem;
-  border: 2px solid #00ffff;
-  padding: 10px 20px;
   display: inline-block;
-  margin-top: 20px;
-  transition: all 0.3s ease-in-out;
-  background-color: black;
-}
-
-.glitch::before,
-.glitch::after {
-  content: attr(data-glitch);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  background: black;
-  clip: rect(0, 0, 0, 0);
+  position: relative;
+  padding: 0.8rem 2rem;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+  background-color: #00f0ff;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 30px rgba(0, 255, 255, 0.2);
 }
 
 .glitch:hover {
-  background-color: #00cccc;
   transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.9), 0 0 40px rgba(0, 255, 255, 0.3);
+  background-color: #00e0e0;
 }

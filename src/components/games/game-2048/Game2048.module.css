@@ -71,6 +71,9 @@
 .tile-1024 { background-color: #edc53f; color: #fff; }
 .tile-2048 { background-color: #e60012; color: #fffde7; }
 .tile-4096 { background-color: #820000; color: #ffcc00; }
+.tile-8192  { background-color: #4e0000; color: #ffdf00; }
+.tile-16384 { background-color: #2e0000; color: #fff; }
+
 
 .resetButton {
   font-size: 18px;
@@ -145,9 +148,9 @@
 
 .footer {
   margin-top: 30px;
-  font-size: 18px;
-  color: #111;
+  font-size: 18px;;
+  color: #000;
   font-family: 'MarioFont', cursive;
-  text-shadow: 2px 2px 3px #e6c300;
+  text-shadow: 2px 2px 3px #000000;
   letter-spacing: 1px;
 }

@@ -1,40 +1,86 @@
 import { Link } from 'react-router-dom';
-import { Info, ShieldCheck, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowUp, Info, ShieldCheck } from 'lucide-react';
+import styles from './BottomBar.module.css';
 
-export default function BottomBar() {
-    return (
-        <footer className="bar">
-            <div>
-            <Link
-                    title="About Shadowveil Studio"
-                    to="/about-us"
-                    className="footer-comp"
-                
-                >
-                    <Info className="w-4 h-4" />
-                    About Us
-                </Link>
+const BottomBar = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <footer className={styles.footer}>
+      <div className={styles.container}>
+
+        {/* Developer 1: Satvik */}
+        <div className={styles.profileSection}>
+          <div className={styles.profileRow}>
+            <div className={styles.profileInfo}>
+              <p className={styles.name}>Satvik Gupta</p>
+              <p className={styles.title}>Final-Year Multi Language Developer</p>
             </div>
-            <div>
-            <Link
-                    title="Read our privacy policy"
-                    to="/privacy-policy"
-                    className="footer-comp"
-                >
-                    <ShieldCheck className="w-4 h-4" />
-                    Privacy Policy
-                </Link>
+            <div className={styles.socials}>
+              <a href="https://github.com/Satviky" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <Github size={24} />
+              </a>
+              <a href="https://www.linkedin.com/in/satvik-g-27bb4a26a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <Linkedin size={24} />
+              </a>
+              <a href="mailto:it10800222125@gmail.com" aria-label="Email">
+                <Mail size={24} />
+              </a>
             </div>
-            <div>
-                <Link
-                    title="Talk to Shadowveil StudioZ"
-                    to="/reach-us"
-                    className="footer-comp"
-                >
-                    <Mail className="w-4 h-4" />
-                    Contact Us
-                </Link>
+          </div>
+        </div>
+
+        {/* Developer 2: Keshav */}
+        <div className={styles.profileSection}>
+          <div className={styles.profileRow}>
+            <div className={styles.profileInfo}>
+              <p className={styles.name}>Keshav Aggarwal</p>
+              <p className={styles.title}>First-Year Web Developer</p>
             </div>
-        </footer>
-    );
-}
+            <div className={styles.socials}>
+              <a href="https://github.com/k-keshav-aggarwal" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <Github size={24} />
+              </a>
+              <a href="https://linkedin.com/agg-keshav" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <Linkedin size={24} />
+              </a>
+              <a href="mailto:Ka9812204392@gmail.com" aria-label="Email">
+                <Mail size={24} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Links (moved above bottom text) */}
+        <div className={styles.footerLinks}>
+          <Link title="About Shadowveil Studio" to="/about-us" className={styles.footerComp}>
+            <Info className="w-33vw h-4" />
+            About Us
+          </Link>
+          <Link title="Read our privacy policy" to="/privacy-policy" className={styles.footerComp}>
+            <ShieldCheck className="w-33vw h-4" />
+            Privacy Policy
+          </Link>
+          <Link title="Talk to Shadowveil StudioZ" to="/reach-us" className={styles.footerComp}>
+            <Mail className="w-33vw h-4" />
+            Contact Us
+          </Link>
+        </div>
+
+        {/* Bottom Text with Scroll Button */}
+        <div className={styles.bottomText}>
+          <p>
+            © {new Date().getFullYear()} Spiele-Zone By ShadowvielStudio. All rights reserved.
+          </p>
+          <button onClick={scrollToTop} aria-label="Back to top" className={styles.icon}>
+            <ArrowUp size={20} />
+          </button>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default BottomBar;
