@@ -1,0 +1,73 @@
+.hangman-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  max-width: 60%;
+  margin: auto;
+  padding: 2rem 1rem;
+  color: #ffffff;
+  background-color: #1e293b; /* Optional: subtle contrast background */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.word {
+  font-size: 2rem;
+  margin: 1.5rem 0;
+  letter-spacing: 0.3rem;
+  font-weight: bold;
+}
+
+.attempts,
+.guesses {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.keyboard button {
+  margin: 0.3rem;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #334155;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.keyboard button:hover {
+  background-color: #475569;
+}
+
+.keyboard button:disabled {
+  background-color: #64748b;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 600px) {
+  .word {
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .keyboard button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .hangman-container {
+    padding: 1.2rem 0.8rem;
+  }
+}

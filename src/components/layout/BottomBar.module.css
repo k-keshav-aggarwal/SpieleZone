@@ -1,0 +1,87 @@
+.footer {
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  margin-top: auto; /* key to push footer to bottom */
+}
+
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.profileSection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.profileRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: 0.1rem 0;
+}
+
+.profileInfo {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #6ee7b7, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.socials a,
+.socials button {
+  color: #94a3b8;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.socials a:hover,
+.socials button:hover {
+  color: #38bdf8;
+}
+
+.bottomText {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  padding-top: 0.25rem;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}

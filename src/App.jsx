@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
+import './App.module.css';
 
 // Layout Components
 import Navbar from './components/layout/Navbar.jsx';
@@ -31,32 +31,33 @@ const NotFound = () => (
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-[#0f172a] text-gray-100">
+      <div className="app-wrapper">
         <Navbar />
+        
+        <div className="main-content">
+          <Routes>
+            {/* Homepage */}
+            <Route path="/" element={<Homepg />} />
+            <Route path="/home" element={<Home2 />} />
 
-        <Routes>
-          {/* Homepage */}
-          <Route path="/" element={<Homepg />} />
-          <Route path="/home" element={<Home2 />} />
+            {/* Games */}
+            <Route path="/tzfe" element={<Game2048 />} />
+            <Route path="/Snake" element={<SnakeGame />} />
+            <Route path="/HangMan" element={<Hangman />} />
+            <Route path="/ghost-code" element={<GCintro />} />
+            <Route path="/ghost-code/play" element={<GCplay />} />
+            <Route path="/bounce" element={<BounceGame />} />
 
-          {/* Game Routes */}
-          <Route path="/tzfe" element={<Game2048 />} />
-          <Route path="/Snake" element={<SnakeGame />} />
-          <Route path="/HangMan" element={<Hangman />} />
-          <Route path="/ghost-code" element={<GCintro />} />
-          <Route path="/ghost-code/play" element={<GCplay />} />
-          <Route path="/bounce" element={<BounceGame />} />
+            {/* Other pages */}
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/reach-us" element={<CU />} />
+            <Route path="/privacy-policy" element={<Prpo />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
 
-          {/* Pages */}
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/reach-us" element={<CU />} />
-          <Route path="/privacy-policy" element={<Prpo />} />
+          <DonateButton />
+        </div>
 
-          {/* Fallback Route */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-
-        <DonateButton />
         <BBar />
       </div>
     </Router>

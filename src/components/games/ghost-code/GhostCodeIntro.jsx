@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import styles from "./GhostCodeIntro.module.css"; // scoped styles
+import styles from "./GhostCodeIntro.module.css";
 
 function trackGameStart(gameName) {
   if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
@@ -50,17 +50,16 @@ const GCintro = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Ghost Code</h1>
       <h2>
-        Defend the realms by typing{' '}
         <span className={styles.sh1}>G</span>
         <span className={styles.sh2}>h</span>
         <span className={styles.sh3}>o</span>
         <span className={styles.sh1}>s</span>
         <span className={styles.sh2}>t</span>
         <span className={styles.sh3}>l</span>
-        <span className={styles.sh1}>y</span>{' '}
+        <span className={styles.sh1}>y</span>&nbsp;
         <span className={styles.sh2}>C</span>
         <span className={styles.sh3}>o</span>
         <span className={styles.sh1}>d</span>

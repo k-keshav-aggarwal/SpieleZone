@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import './Hangman.css';
 import words from '../../../assets/words.json';
+import styles from './Hangman.module.css'; // ✅ CSS Module import
 
 const Hangman = () => {
     const getRandomWord = () => {
@@ -15,21 +15,15 @@ const Hangman = () => {
     const [won, setWon] = useState(false);
 
     const handleGuess = useCallback((letter) => {
-        if (guesses.includes(letter) || remainingAttempts <= 0 || gameOver || won) {
-            return;
-        }
+        if (guesses.includes(letter) || remainingAttempts <= 0 || gameOver || won) return;
         const updatedGuesses = [...guesses, letter];
         setGuesses(updatedGuesses);
-        if (!word.includes(letter)) {
-            setRemainingAttempts((prev) => prev - 1);
-        }
+        if (!word.includes(letter)) setRemainingAttempts(prev => prev - 1);
     }, [guesses, remainingAttempts, gameOver, won, word]);
 
     const handleKeyPress = useCallback((e) => {
         const letter = e.key.toLowerCase();
-        if (letter >= 'a' && letter <= 'z') {
-            handleGuess(letter);
-        }
+        if (letter >= 'a' && letter <= 'z') handleGuess(letter);
     }, [handleGuess]);
 
     useEffect(() => {
@@ -40,10 +34,7 @@ const Hangman = () => {
             "applicationCategory": "Word game",
             "operatingSystem": "All",
             "url": "https://spielezone.com/hm",
-            "author": {
-                "@type": "Organization",
-                "name": "Shadowveil Studio"
-            },
+            "author": { "@type": "Organization", "name": "Shadowveil Studio" },
             "description": "Play Hangman online at Spiele Zone. Guess the word before you run out of chances!",
             "image": "https://spielezone.com/assets/og-hangman.png"
         };
@@ -52,36 +43,28 @@ const Hangman = () => {
         script.type = 'application/ld+json';
         script.text = JSON.stringify(jsonLd);
         document.head.appendChild(script);
-
-        return () => {
-            document.head.removeChild(script);
-        };
+        return () => { document.head.removeChild(script); };
     }, []);
 
     useEffect(() => {
         window.addEventListener('keydown', handleKeyPress);
-        return () => {
-            window.removeEventListener('keydown', handleKeyPress);
-        };
+        return () => window.removeEventListener('keydown', handleKeyPress);
     }, [handleKeyPress]);
 
     useEffect(() => {
-        if (remainingAttempts === 0) {
-            setGameOver(true);
-        } else if (word.split("").every(letter => guesses.includes(letter))) {
-            setWon(true);
-        }
+        if (remainingAttempts === 0) setGameOver(true);
+        else if (word.split("").every(letter => guesses.includes(letter))) setWon(true);
     }, [remainingAttempts, guesses, word]);
 
     const displayWord = word.split("").map(letter => guesses.includes(letter) ? letter : "_").join(" ");
 
     return (
-        <div className="hangman-container">
+        <div className={styles['hangman-container']}>
             <h1>Hangman Game</h1>
-            <div className="word">{gameOver ? word : displayWord}</div>
-            <div className="attempts">Remaining Attempts: {remainingAttempts}</div>
-            <div className="guesses">Guessed Letters: {guesses.join(", ")}</div>
-            <div className="keyboard">
+            <div className={styles.word}>{gameOver || won ? word : displayWord}</div>
+            <div className={styles.attempts}>Remaining Attempts: {remainingAttempts}</div>
+            <div className={styles.guesses}>Guessed Letters: {guesses.join(", ")}</div>
+            <div className={styles.keyboard}>
                 {"abcdefghijklmnopqrstuvwxyz".split("").map(letter => (
                     <button
                         key={letter}
@@ -92,8 +75,8 @@ const Hangman = () => {
                     </button>
                 ))}
             </div>
-            {gameOver && <div className="game-over">Game Over! The word was "{word}".</div>}
-            {won && <div className="win">You win! The word was "{word}".</div>}
+            {gameOver && <div className={styles['game-over']}>Game Over! The word was "{word}".</div>}
+            {won && <div className={styles.win}>You win! The word was "{word}".</div>}
         </div>
     );
 };
