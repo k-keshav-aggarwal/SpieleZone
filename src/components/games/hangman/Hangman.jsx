@@ -23,6 +23,7 @@ const Hangman = () => {
 
     const handleKeyPress = useCallback((e) => {
         const letter = e.key.toLowerCase();
+        if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.key === "Escape" ) return;
         if (letter >= 'a' && letter <= 'z') handleGuess(letter);
     }, [handleGuess]);
 
