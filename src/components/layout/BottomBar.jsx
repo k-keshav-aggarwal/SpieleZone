@@ -1,4 +1,5 @@
-import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Github, Linkedin, Mail, ArrowUp, Info, ShieldCheck } from 'lucide-react';
 import styles from './BottomBar.module.css';
 
 const BottomBar = () => {
@@ -27,7 +28,6 @@ const BottomBar = () => {
               <a href="mailto:it10800222125@gmail.com" aria-label="Email">
                 <Mail size={24} />
               </a>
-
             </div>
           </div>
         </div>
@@ -53,15 +53,31 @@ const BottomBar = () => {
           </div>
         </div>
 
-        <div className={styles.bottomText}>
-        <p>
-            © {new Date().getFullYear()} Spiele-Zone By ShadowvielStudio. All rights reserved.
-        </p>
-        <button onClick={scrollToTop} aria-label="Back to top" className={styles.icon}>
-            <ArrowUp size={20} />
-        </button>
+        {/* Footer Links (moved above bottom text) */}
+        <div className={styles.footerLinks}>
+          <Link title="About Shadowveil Studio" to="/about-us" className={styles.footerComp}>
+            <Info className="w-33vw h-4" />
+            About Us
+          </Link>
+          <Link title="Read our privacy policy" to="/privacy-policy" className={styles.footerComp}>
+            <ShieldCheck className="w-33vw h-4" />
+            Privacy Policy
+          </Link>
+          <Link title="Talk to Shadowveil StudioZ" to="/reach-us" className={styles.footerComp}>
+            <Mail className="w-33vw h-4" />
+            Contact Us
+          </Link>
         </div>
-        
+
+        {/* Bottom Text with Scroll Button */}
+        <div className={styles.bottomText}>
+          <p>
+            © {new Date().getFullYear()} Spiele-Zone By ShadowvielStudio. All rights reserved.
+          </p>
+          <button onClick={scrollToTop} aria-label="Back to top" className={styles.icon}>
+            <ArrowUp size={20} />
+          </button>
+        </div>
       </div>
     </footer>
   );

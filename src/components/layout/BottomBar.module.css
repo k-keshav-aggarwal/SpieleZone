@@ -7,9 +7,8 @@
   align-items: center;
   justify-content: center;
   padding: 1rem 0;
-  margin-top: auto; /* key to push footer to bottom */
+  margin-top: auto; /* Pushes footer to bottom if using flex layout */
 }
-
 
 .container {
   width: 100%;
@@ -19,7 +18,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 0.5rem;
 }
 
 .profileSection {
@@ -33,7 +32,7 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
-  margin: 0.1rem 0;
+  margin: 0.2rem 0;
 }
 
 .profileInfo {
@@ -77,11 +76,54 @@
   color: #38bdf8;
 }
 
+/* Footer links row */
+.footerLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footerComp {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footerComp:hover {
+  color: #38bdf8;
+}
+
+/* Bottom area with copyright and arrow */
 .bottomText {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   text-align: center;
   font-size: 0.75rem;
   color: #cbd5e1;
-  padding-top: 0.25rem;
-  margin-top: auto;
+  padding-top: 0.75rem;
+  margin-top: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Scroll to top icon button */
+.icon {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.icon:hover {
+  color: #38bdf8;
 }
