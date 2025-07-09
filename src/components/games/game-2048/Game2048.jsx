@@ -151,7 +151,10 @@ const Game2048 = () => {
                     {board.map((row, i) => (
                         <div className={styles.row} key={i}>
                             {row.map((val, j) => (
-                                <div className={`${styles.tile} ${styles['tile' + val] || ''}`} key={j}>
+                                <div
+                                    key={j}
+                                    className={`${styles.tile} ${styles[`tile-${val}`] || ''}`}
+                                >
                                     {val !== 0 ? val : ''}
                                 </div>
                             ))}
@@ -160,11 +163,14 @@ const Game2048 = () => {
                 </div>
 
                 {gameOver && (
-                    <div className={styles.overlay}>
+                    <div className={styles.gameOverlay}>
                         <p>Game Over!</p>
-                        <button onClick={handleReset} className={styles.resetButton}>🔄 Reset Game</button>
+                        <button onClick={handleReset} className={styles.resetButton}>
+                            🔄 Reset Game
+                        </button>
+
                         {!rated ? (
-                            <div className={styles.rating}>
+                            <div className={styles.emojiRating}>
                                 {[1, 2, 3, 4, 5, 6, 7].map((num, i) => (
                                     <span
                                         key={i}
@@ -175,7 +181,9 @@ const Game2048 = () => {
                                     </span>
                                 ))}
                             </div>
-                        ) : <p>Thank you for rating!</p>}
+                        ) : (
+                            <p>Thank you for rating!</p>
+                        )}
                     </div>
                 )}
             </div>
