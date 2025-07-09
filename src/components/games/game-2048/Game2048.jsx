@@ -144,12 +144,12 @@ const Game2048 = () => {
             canonical.rel = 'canonical';
             document.head.appendChild(canonical);
         }
-        canonical.setAttribute('href', 'https://spiele-zone.vercel.app/tzfe');
+        canonical.setAttribute('href', 'https://www.spielezone.xyz/tzfe');
 
         return () => {
             document.title = prevTitle;
             if (descTag && prevDesc) descTag.setAttribute('content', prevDesc);
-            if (canonical) canonical.setAttribute('href', 'https://spiele-zone.vercel.app/');
+            if (canonical) canonical.setAttribute('href', 'https://www.spielezone.xyz/');
         };
     }, []);
 

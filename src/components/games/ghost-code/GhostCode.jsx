@@ -88,7 +88,7 @@ const GhostCode = () => {
             canonical.rel = 'canonical';
             document.head.appendChild(canonical);
         }
-        canonical.setAttribute('href', 'https://spiele-zone.vercel.app/ghost-code/play');
+        canonical.setAttribute('href', 'https://www.spielezone.xyz/ghost-code/play');
 
         return () => {
             document.title = prevTitle;
@@ -96,7 +96,7 @@ const GhostCode = () => {
                 descTag.setAttribute('content', prevDesc);
             }
             if (canonical) {
-                canonical.setAttribute('href', 'https://spiele-zone.vercel.app/');
+                canonical.setAttribute('href', 'https://www.spielezone.xyz/');
             }
         };
     }, []);
