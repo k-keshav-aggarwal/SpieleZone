@@ -27,7 +27,7 @@ const moveUp = (board) =>
 const moveDown = (board) =>
     rotateLeft(moveLeft(rotateRight(board)));
 
-const didBoardChange = (a, b) => JSON.stringify(a) !== JSON.stringify(b);
+const changeInBoard = (a, b) => JSON.stringify(a) !== JSON.stringify(b);
 
 const isGameOver = (board) => {
     for (let i = 0; i < 4; i++) {
@@ -59,25 +59,29 @@ const createBoard = () => {
     return board;
 };
 
-// --- Component ---
 const Game2048 = () => {
     const [board, setBoard] = useState(createBoard());
     const [gameOver, setGameOver] = useState(false);
     const [rating, setRating] = useState(0);
     const [rated, setRated] = useState(false);
     const [touchStart, setTouchStart] = useState({ x: 0, y: 0 });
+    const [resetting, setResetting] = useState(false);
+    const [showResetMsg, setShowResetMsg] = useState(false);
 
     const handleKeyPress = useCallback((e) => {
         if (gameOver) return;
 
         let newBoard = board.map(row => [...row]);
-        if (e.key === 'ArrowUp') newBoard = moveUp(newBoard);
-        else if (e.key === 'ArrowDown') newBoard = moveDown(newBoard);
-        else if (e.key === 'ArrowLeft') newBoard = moveLeft(newBoard);
-        else if (e.key === 'ArrowRight') newBoard = moveRight(newBoard);
+        const key = e.key.toLowerCase();
+
+        if      (e.key === 'ArrowUp'    || key === 'w') newBoard = moveUp(newBoard);
+        else if (e.key === 'ArrowDown'  || key === 's') newBoard = moveDown(newBoard);
+        else if (e.key === 'ArrowLeft'  || key === 'a') newBoard = moveLeft(newBoard);
+        else if (e.key === 'ArrowRight' || key === 'd') newBoard = moveRight(newBoard);
         else return;
 
-        if (didBoardChange(board, newBoard)) {
+
+        if (changeInBoard(board, newBoard)) {
             addNewTile(newBoard);
             setBoard(newBoard);
             if (isGameOver(newBoard)) setGameOver(true);
@@ -110,13 +114,6 @@ const Game2048 = () => {
         window.addEventListener('touchstart', handleTouchStart);
         window.addEventListener('touchend', handleTouchEnd);
 
-        const boardElement = document.querySelector('.board');
-        if (boardElement) {
-            const preventDefault = (e) => e.preventDefault();
-            boardElement.addEventListener('touchmove', preventDefault, { passive: false });
-            return () => boardElement.removeEventListener('touchmove', preventDefault);
-        }
-
         return () => {
             window.removeEventListener('keydown', handleKeyPress);
             window.removeEventListener('touchstart', handleTouchStart);
@@ -124,40 +121,17 @@ const Game2048 = () => {
         };
     }, [handleKeyPress, handleTouchEnd]);
 
-    useEffect(() => {
-        const prevTitle = document.title;
-        const prevDesc = document.querySelector("meta[name='description']")?.getAttribute('content');
-
-        document.title = '2048 Online - Spiele Zone by Shadowveil StudioZ';
-
-        let descTag = document.querySelector("meta[name='description']");
-        if (!descTag) {
-            descTag = document.createElement('meta');
-            descTag.name = 'description';
-            document.head.appendChild(descTag);
-        }
-        descTag.setAttribute('content', 'Play the classic 2048 puzzle game online for free at Spiele Zone by Shadowveil StudioZ! Swipe to combine numbers and reach 2048.');
-
-        let canonical = document.querySelector("link[rel='canonical']");
-        if (!canonical) {
-            canonical = document.createElement('link');
-            canonical.rel = 'canonical';
-            document.head.appendChild(canonical);
-        }
-        canonical.setAttribute('href', 'https://www.spielezone.xyz/tzfe');
-
-        return () => {
-            document.title = prevTitle;
-            if (descTag && prevDesc) descTag.setAttribute('content', prevDesc);
-            if (canonical) canonical.setAttribute('href', 'https://www.spielezone.xyz/');
-        };
-    }, []);
-
     const handleReset = () => {
-        setBoard(createBoard());
-        setGameOver(false);
-        setRating(0);
-        setRated(false);
+        setResetting(true);
+        setTimeout(() => {
+            setBoard(createBoard());
+            setGameOver(false);
+            setRating(0);
+            setRated(false);
+            setResetting(false);
+            setShowResetMsg(true);
+            setTimeout(() => setShowResetMsg(false), 2000);
+        }, 300);
     };
 
     const handleStarClick = (value) => {
@@ -166,41 +140,51 @@ const Game2048 = () => {
     };
 
     return (
-        <div className="tzfe-container">
-            <h1>2048 Game</h1>
-            <div className="board">
-                {board.map((row, i) => (
-                    <div className="row" key={i}>
-                        {row.map((val, j) => (
-                            <div className={`tile tile-${val}`} key={j}>
-                                {val !== 0 ? val : ''}
-                            </div>
-                        ))}
-                    </div>
-                ))}
-            </div>
+        <div className="game-2048-container">
+            <h1 className="mario-title">2048 Mario Edition</h1>
 
-            {gameOver && (
-                <div className="game-over-overlay">
-                    <p>Game Over!</p>
-                    <button onClick={handleReset}>Reset Game</button>
-                    {!rated ? (
-                        <div className="emoji-rating">
-                            {[1, 2, 3, 4, 5].map((num, i) => (
-                                <span
-                                    key={i}
-                                    className={`emoji ${rating >= num ? 'selected' : ''}`}
-                                    onClick={() => handleStarClick(num)}
-                                    style={{ fontSize: '24px' }}
-                                >
-                                    {['👎', '😕', '😐', '😃', '😆'][i]}
-                                </span>
+            {showResetMsg && (
+                <div className="reset-toast">✨ New Game Started!</div>
+            )}
+
+            <div className="board-wrapper">
+                <div className={`board ${resetting ? 'resetting' : ''}`}>
+                    {board.map((row, i) => (
+                        <div className="row" key={i}>
+                            {row.map((val, j) => (
+                                <div className={`tile tile-${val}`} key={j}>
+                                    {val !== 0 ? val : ''}
+                                </div>
                             ))}
                         </div>
-                    ) : <p>Thank you for rating!</p>}
+                    ))}
                 </div>
-            )}
-            <div>By Satviky</div>
+
+                {gameOver && (
+                    <div className="game-overlay">
+                        <p>Game Over!</p>
+                        <button onClick={handleReset} className="reset-button">🔄 Reset Game</button>
+                        {!rated ? (
+                            <div className="emoji-rating">
+                                {[1, 2, 3, 4, 5 , 6 , 7].map((num, i) => (
+                                    <span
+                                        key={i}
+                                        className={`emoji ${rating >= num ? 'selected' : ''}`}
+                                        onClick={() => handleStarClick(num)}
+                                    >
+                                        {['👎', '😠', '😕', '😐', '😃', '😆', '❤️'][i]}
+                                    </span>
+                                ))}
+                            </div>
+                        ) : <p>Thank you for rating!</p>}
+                    </div>
+                )}
+            </div>
+
+            <div className="footer">
+                <p>By Satviky</p>
+                <p>UI/UX by Keshav</p>
+            </div>
         </div>
     );
 };
