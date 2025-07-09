@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.sh1 {
+  color: #00ffff;
+}
+
+.sh2 {
+  color: #00ff00;
+}
+
+.sh3 {
+  color: #ccff00;
+}
+
+.glitch {
+  position: relative;
+  color: #00ffff;
+  font-family: 'Press Start 2P', monospace;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border: 2px solid #00ffff;
+  padding: 10px 20px;
+  display: inline-block;
+  margin-top: 20px;
+  transition: all 0.3s ease-in-out;
+  background-color: black;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-glitch);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  background: black;
+  clip: rect(0, 0, 0, 0);
+}
+
+.glitch:hover {
+  background-color: #00cccc;
+  transform: scale(1.05);
+}

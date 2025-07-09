@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import './Game2048.css';
+import styles from './Game2048.module.css';
 
 const rotateLeft = (board) => board[0].map((_, i) => board.map(row => row[3 - i]));
 const rotateRight = (board) => board[0].map((_, i) => board.map(row => row[i]).reverse());
@@ -80,7 +80,6 @@ const Game2048 = () => {
         else if (e.key === 'ArrowRight' || key === 'd') newBoard = moveRight(newBoard);
         else return;
 
-
         if (changeInBoard(board, newBoard)) {
             addNewTile(newBoard);
             setBoard(newBoard);
@@ -140,19 +139,19 @@ const Game2048 = () => {
     };
 
     return (
-        <div className="game-2048-container">
-            <h1 className="mario-title">2048 Mario Edition</h1>
+        <div className={styles.container}>
+            <h1 className={styles.title}>2048 Mario Edition</h1>
 
             {showResetMsg && (
-                <div className="reset-toast">✨ New Game Started!</div>
+                <div className={styles.resetToast}>✨ New Game Started!</div>
             )}
 
-            <div className="board-wrapper">
-                <div className={`board ${resetting ? 'resetting' : ''}`}>
+            <div className={styles.boardWrapper}>
+                <div className={`${styles.board} ${resetting ? styles.resetting : ''}`}>
                     {board.map((row, i) => (
-                        <div className="row" key={i}>
+                        <div className={styles.row} key={i}>
                             {row.map((val, j) => (
-                                <div className={`tile tile-${val}`} key={j}>
+                                <div className={`${styles.tile} ${styles['tile' + val] || ''}`} key={j}>
                                     {val !== 0 ? val : ''}
                                 </div>
                             ))}
@@ -161,15 +160,15 @@ const Game2048 = () => {
                 </div>
 
                 {gameOver && (
-                    <div className="game-overlay">
+                    <div className={styles.overlay}>
                         <p>Game Over!</p>
-                        <button onClick={handleReset} className="reset-button">🔄 Reset Game</button>
+                        <button onClick={handleReset} className={styles.resetButton}>🔄 Reset Game</button>
                         {!rated ? (
-                            <div className="emoji-rating">
-                                {[1, 2, 3, 4, 5 , 6 , 7].map((num, i) => (
+                            <div className={styles.rating}>
+                                {[1, 2, 3, 4, 5, 6, 7].map((num, i) => (
                                     <span
                                         key={i}
-                                        className={`emoji ${rating >= num ? 'selected' : ''}`}
+                                        className={`${styles.emoji} ${rating >= num ? styles.selected : ''}`}
                                         onClick={() => handleStarClick(num)}
                                     >
                                         {['👎', '😠', '😕', '😐', '😃', '😆', '❤️'][i]}
@@ -181,7 +180,7 @@ const Game2048 = () => {
                 )}
             </div>
 
-            <div className="footer">
+            <div className={styles.footer}>
                 <p>By Satviky</p>
                 <p>UI/UX by Keshav</p>
             </div>
