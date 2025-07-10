@@ -1,7 +1,9 @@
 .snake-game-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
     margin-top: 20px;
 }
 
@@ -35,19 +37,16 @@
     border-bottom: 15px solid #7301ed;
 }
 
-.snake-head.up {
+.up {
     transform: rotate(0deg);
 }
-
-.snake-head.down {
+.down {
     transform: rotate(180deg);
 }
-
-.snake-head.left {
+.left {
     transform: rotate(-90deg);
 }
-
-.snake-head.right {
+.right {
     transform: rotate(90deg);
 }
 
@@ -69,19 +68,38 @@
     color: #f0deff;
 }
 
-.sp-l{
-    position: absolute;
-    left: 0;
+.sp-l, .sp-r {
+    width: 300px;
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-.sp-r{
-    position: absolute;
-    right: 0;
-    top: 100;
+.emoji-rating {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.emoji {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.emoji:hover {
+    transform: scale(1.2);
+}
+.selected {
+    text-shadow: 1px 1px 2px #fff;
 }
 
 @media screen and (max-width: 770px) {
-    .sp-r{
-        position: static;
+    .sp-r, .sp-l {
+        width: 100%;
     }
+}
+.icon {
+    margin-left: auto;
+    cursor: pointer;
+    color: #94a3b8;
+    transition: color 0.3s ease;
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import './SnakeGame.css';
+import styles from './SnakeGame.module.css';
 
 const GRID_SIZE = 20;
 
@@ -82,6 +82,11 @@ const SnakeGame = () => {
         if ((newDir.x !== 0 && direction.x === 0) || (newDir.y !== 0 && direction.y === 0)) {
             setDirection(newDir);
         }
+
+        // Prevent default scroll behavior
+        if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'w', 'a', 's', 'd', 'W', 'A', 'S', 'D'].includes(e.key)) {
+            e.preventDefault();
+        }
     }, [direction]);
 
     const handleTouchStart = useCallback((e) => {
@@ -114,18 +119,14 @@ const SnakeGame = () => {
     }, [direction]);
 
     useEffect(() => {
-        window.addEventListener('keydown', handleKeyPress);
+        window.addEventListener('keydown', handleKeyPress, { passive: false });
         window.addEventListener('touchstart', handleTouchStart);
         window.addEventListener('touchend', handleTouchEnd);
-
-        const boardElement = document.querySelector('.snake-game');
-        boardElement?.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
 
         return () => {
             window.removeEventListener('keydown', handleKeyPress);
             window.removeEventListener('touchstart', handleTouchStart);
             window.removeEventListener('touchend', handleTouchEnd);
-            boardElement?.removeEventListener('touchmove', (e) => e.preventDefault());
         };
     }, [handleKeyPress, handleTouchStart, handleTouchEnd]);
 
@@ -184,11 +185,11 @@ const SnakeGame = () => {
         if (rated) return <p>Thank you for rating!</p>;
 
         return (
-            <div className="emoji-rating">
+            <div className={styles['emoji-rating']}>
                 {[1, 2, 3, 4, 5].map((num, i) => (
                     <span
                         key={i}
-                        className={`emoji ${rating >= num ? 'selected' : ''}`}
+                        className={`${styles.emoji} ${rating >= num ? styles.selected : ''}`}
                         onClick={() => handleStarClick(num)}
                         style={{ fontSize: '24px' }}
                     >
@@ -201,55 +202,57 @@ const SnakeGame = () => {
 
     return (
         <>
-            <div className='game-name'>
+            <div className={styles['game-name']} style={{ textAlign: 'center' }}>
                 <h1>Snake Game</h1>
             </div>
-            <div className="snake-game-container">
-                <audio ref={eatSoundRef}>
-                    <source src="/audios/gulp.mp3" type="audio/mpeg" />
-                </audio>
-
-                <div className="snake-game">
-                    {Array.from({ length: GRID_SIZE }, (_, rowIndex) => (
-                        <div key={rowIndex} className="s-row">
-                            {Array.from({ length: GRID_SIZE }, (_, colIndex) => {
-                                const isSnake = snake.some(s => s.x === colIndex && s.y === rowIndex);
-                                const isHead = snake[0].x === colIndex && snake[0].y === rowIndex;
-                                const isFood = food.x === colIndex && food.y === rowIndex;
-                                let className = "cell";
-
-                                if (isSnake) {
-                                    className += isHead
-                                        ? ` snake-head ${snake[0].direction.x === 1 ? 'right' : snake[0].direction.x === -1 ? 'left' : snake[0].direction.y === 1 ? 'down' : 'up'}`
-                                        : " snake-body";
-                                } else if (isFood) {
-                                    className += " food";
-                                }
-
-                                return <div key={colIndex} className={className}></div>;
-                            })}
-                        </div>
-                    ))}
-                </div>
-
-                <div className="game-info">
-                    <p>Score: {score}</p>
-                    {gameOver && (
-                        <div className="game-over-overlay">
-                            <p>Game Over!</p>
-                            <button onClick={handleReset}>Reset Game</button>
-                            {renderRating()}
-                        </div>
-                    )}
-                </div>
-
-                <p className='nophone sp-l w-300'>
-                    <strong>Snake Game</strong> is a video game which was released somewhere near 1970s in arcade. It stayed popular for a long time ever since. When it became pre-loaded game on Nokia phone in 1998, Snake found a good fanbase.
-                    Player create long thin creature, resembling a snake chasing pixels of 'food' and desperately avoiding the walls and its own tail.  It wasn't just a game; it was a cultural phenomenon, a shared memory for an entire generation, teaching us about strategy, quick reflexes, and the crushing despair of hitting your own body just inches from a new high score.
+            <h1 style={{ textAlign: 'center' }}>Can you beat your own <strong>high score?</strong></h1>
+            <div className={styles['snake-game-container']}>
+                <div className={styles['sp-l']}>
+                    <p><strong>Snake Game</strong> is a video game which was released near 1970s in arcades. When it became pre-loaded on Nokia in 1998, Snake found a good fanbase.</p>
+                    <p>Player creates a long thin creature chasing pixels of 'food' while avoiding walls and its own tail. It wasn't just a game; it was a shared memory.</p>
                     <div>Can you beat your own <strong>high score?</strong></div>
-                </p>
+                </div>
 
-                <p className='snake-para w-300 sp-r'>
+                <div>
+                    <audio ref={eatSoundRef}>
+                        <source src="/audios/gulp.mp3" type="audio/mpeg" />
+                    </audio>
+                    <div className={styles['snake-game']}>
+                        {Array.from({ length: GRID_SIZE }, (_, rowIndex) => (
+                            <div key={rowIndex} className={styles['s-row']}>
+                                {Array.from({ length: GRID_SIZE }, (_, colIndex) => {
+                                    const isSnake = snake.some(s => s.x === colIndex && s.y === rowIndex);
+                                    const isHead = snake[0].x === colIndex && snake[0].y === rowIndex;
+                                    const isFood = food.x === colIndex && food.y === rowIndex;
+                                    let className = styles.cell;
+
+                                    if (isSnake) {
+                                        className += ' ' + (isHead
+                                            ? `${styles['snake-head']} ${styles[snake[0].direction.x === 1 ? 'right' : snake[0].direction.x === -1 ? 'left' : snake[0].direction.y === 1 ? 'down' : 'up']}`
+                                            : styles['snake-body']);
+                                    } else if (isFood) {
+                                        className += ' ' + styles.food;
+                                    }
+
+                                    return <div key={colIndex} className={className}></div>;
+                                })}
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className={styles['game-info']}>
+                        <p>Score: {score}</p>
+                        {gameOver && (
+                            <div className={styles['game-over-overlay']}>
+                                <p>Game Over!</p>
+                                <button onClick={handleReset}>Reset Game</button>
+                                {renderRating()}
+                            </div>
+                        )}
+                    </div>
+                </div>
+
+                <div className={styles['sp-r']}>
                     <h3>Snake Game Controls</h3>
                     <h4>For Mobile Phones</h4>
                     <ul>
@@ -262,12 +265,11 @@ const SnakeGame = () => {
                         <ul>
                             <li><strong>W</strong> to move UP</li>
                             <li><strong>A</strong> to move Left</li>
+                            <li><strong>S</strong> to move Down</li>
                             <li><strong>D</strong> to move Right</li>
-                            <li><strong>S</strong> to move down</li>
                         </ul>
                     </ol>
-
-                </p>
+                </div>
             </div>
         </>
     );
