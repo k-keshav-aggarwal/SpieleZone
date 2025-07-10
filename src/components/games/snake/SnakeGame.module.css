@@ -107,6 +107,16 @@
   border-radius: 15px;
   z-index: 10;
 }
+.snakereset {
+  font-size: 18px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #3F00FF;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
 @media screen and (max-width: 770px) {
     .sp-r, .sp-l {

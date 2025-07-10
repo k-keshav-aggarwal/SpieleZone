@@ -245,7 +245,7 @@ const SnakeGame = () => {
                         {gameOver && (
                             <div className={styles['snake-game-over-overlay']}>
                                 <p>Game Over!</p>
-                                <button onClick={handleReset}>Reset Game</button>
+                                <button onClick={handleReset} className={styles.snakereset}>Reset Game</button>
                                 {renderRating()}
                             </div>
                         )}
