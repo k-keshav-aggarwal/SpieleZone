@@ -20,6 +20,7 @@ export default function Navbar() {
       <Link title="Nostalgic Snake game" to="/Snake" onClick={() => trackGameStart('Snake')}>Snake Game</Link>
       <Link title="Not so Classic Hangman" to="/HangMan" onClick={() => trackGameStart('hangman')}>Hangman</Link>
       <Link title="New and Unique typing game" to="/ghost-code">Ghost Code</Link>
+      <Link title="Simple Old School Memory Test" to="/memory">Memory Puzzle</Link>
     </nav>
   );
 }
