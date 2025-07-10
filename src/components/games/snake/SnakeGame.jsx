@@ -243,7 +243,7 @@ const SnakeGame = () => {
                     <div className={styles['game-info']}>
                         <p>Score: {score}</p>
                         {gameOver && (
-                            <div className={styles['game-over-overlay']}>
+                            <div className={styles['snake-game-over-overlay']}>
                                 <p>Game Over!</p>
                                 <button onClick={handleReset}>Reset Game</button>
                                 {renderRating()}
