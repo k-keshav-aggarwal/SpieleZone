@@ -1,8 +1,31 @@
 {
-  "name": "game-a",
+  "name": "spiele-zone",
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "description": "A collection of retro-style browser games built with React.js by Shadowveil StudioZ - your ultimate destination for free online games",
+  "author": "Shadowveil StudioZ <it10800222125@gmail.com>",
+  "homepage": "https://spiele-zone.vercel.app/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Satviky/SpieleZone.git"
+  },
+  "keywords": [
+    "games",
+    "browser-games",
+    "react",
+    "javascript",
+    "web-games",
+    "retro-games",
+    "snake",
+    "2048",
+    "hangman",
+    "memory-puzzle",
+    "online-games",
+    "shadowveil-studioz",
+    "spiele-zone"
+  ],
+  "license": "MIT",
   "dependencies": {
     "@jridgewell/sourcemap-codec": "^1.5.4",
     "@testing-library/jest-dom": "^6.6.3",

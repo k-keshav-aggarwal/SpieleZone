@@ -131,6 +131,12 @@ const AboutUs = () => {
           <ProjectsGrid projects={projectTiles} />
         </motion.div>
 
+        <motion.h2
+            variants={fadeUp}
+            className="text-3xl font-bold text-blue-300 mb-10"
+          >
+            Contact Us Zone
+          </motion.h2>
         {/* Contact */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}

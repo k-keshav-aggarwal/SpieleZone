@@ -34,10 +34,10 @@ const Hangman = () => {
             "name": "Hangman",
             "applicationCategory": "Word game",
             "operatingSystem": "All",
-            "url": "https://spielezone.com/hm",
-            "author": { "@type": "Organization", "name": "Shadowveil Studio" },
+            "url": "https://spiele-zone.vercel.app/HangMan",
+            "author": { "@type": "Organization", "name": "Shadowveil StudioZ" },
             "description": "Play Hangman online at Spiele Zone. Guess the word before you run out of chances!",
-            "image": "https://spielezone.com/assets/og-hangman.png"
+            "image": "https://spiele-zone.vercel.app/images/Hangman.png"
         };
 
         const script = document.createElement('script');
