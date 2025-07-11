@@ -5,7 +5,7 @@ const ContactBlock = () => {
         <span className="text-blue-400">[system]</span> Initializing connection...
       </p>
       <p className="text-sm mb-2">
-        <span className="text-yellow-300">it10800222125@gmail.com:</span> Send me a message →{" "}
+        <span className="text-yellow-300"></span> Send me a message →{" "}
         <a
           href="mailto:it10800222125@gmail.com"
           className="text-cyan-300 underline hover:text-pink-400 transition"
