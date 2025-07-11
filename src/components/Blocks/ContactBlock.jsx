@@ -16,16 +16,6 @@ const ContactBlock = () => {
       </p>
 
       <p className="text-sm mb-2">
-        <span className="text-yellow-300">[info]</span> Secondary email →{" "}
-        <a
-          href="mailto:ka9812204392@gmail.com"
-          className="text-cyan-300 underline hover:text-pink-400 transition"
-        >
-          ka9812204392@gmail.com
-        </a>
-      </p>
-
-      <p className="text-sm mb-2">
         <span className="text-yellow-300">[link]</span> GitHub Profile →{" "}
         <a
           href="https://github.com/Satviky/SpieleZone"
