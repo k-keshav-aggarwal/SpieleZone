@@ -1,6 +1,6 @@
 # 🎮 SpieleZone
 
-A collection of retro-style browser games built with React.js, originally created as a learning project and evolved into a fun, interactive gaming portal 📦([spiele-zone.vercel.app][1]).
+A collection of retro-style browser games built with React.js by Shadowveil StudioZ, originally created as a learning project and evolved into a fun, interactive gaming portal 📦([spiele-zone.vercel.app][1]).
 
 ## 🚀 Live Demo
 
@@ -76,7 +76,8 @@ Focused on simplicity and nostalgia—pixel fonts, clean layout, and intuitive c
 
 ## 👤 Author
 
-* **Satvik Gupta** – Web Developer, UI/UX Designer & AI enthusiast ([awais-portfolio-seven.vercel.app][2], [gsatvik.com][3], [game-zone-five.vercel.app][4], [v0.dev][5])
+* **Shadowveil StudioZ** – Game Development Studio specializing in web-based retro games
+* **Satvik Gupta** – Lead Developer & UI/UX Designer ([awais-portfolio-seven.vercel.app][2], [gsatvik.com][3], [game-zone-five.vercel.app][4], [v0.dev][5])
 
 ---
 
@@ -102,7 +103,11 @@ This project is licensed under the **MIT License** – see the [LICENSE](LICENSE
 
 ## 📞 Contact
 
-For any questions or suggestions, feel free to reach out via GitHub! You're encouraged to submit issues or PRs to improve SpieleZone.
+For any questions or suggestions about SpieleZone, feel free to reach out via GitHub! You're encouraged to submit issues or PRs to improve our games.
+
+**Contact Shadowveil StudioZ:**
+- Email: it10800222125@gmail.com
+- Discord: [Shadowveil StudioZ Discord](https://discord.com/users/1070314800615276555)
 
 ---
 

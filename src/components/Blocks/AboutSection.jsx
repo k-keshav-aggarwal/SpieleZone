@@ -10,6 +10,14 @@ const AboutSection = () => {
         with a retro twist. I'm passionate about interactive web apps, pixel
         art, and full-stack dev. Stay tuned — more games are on the way!
       </p>
+
+      <p className="text-green-300 text-xs mt-4">
+        <strong>Special thanks to Keshav Aggarwal</strong> for his incredible contributions! 
+        He enhanced gameplay mechanics across multiple games, redesigned the navigation system, 
+        and improved cross-device compatibility. His work on Hangman input handling, 2048 scrolling fixes, 
+        Ghost Code UI redesign, and the complete navbar overhaul has significantly elevated the user experience. 
+        This marks his first open source contribution - and what an impact it's been!
+      </p>
     </section>
   );
 };

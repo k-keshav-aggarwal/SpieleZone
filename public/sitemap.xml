@@ -2,26 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://spiele-zone.vercel.app/</loc>
-        <lastmod>2025-05-25</lastmod>
+        <lastmod>2025-07-11</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://spiele-zone.vercel.app/tzfe</loc>
-        <lastmod>2025-05-24</lastmod>
+        <lastmod>2025-07-11</lastmod>
         <changefreq>daily</changefreq>
-        <priority>1.0</priority>
+        <priority>0.9</priority>
     </url>
     <url>
         <loc>https://spiele-zone.vercel.app/snake</loc>
-        <lastmod>2025-05-24</lastmod>
+        <lastmod>2025-07-11</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://spiele-zone.vercel.app/hm</loc>
-        <lastmod>2025-05-14</lastmod>
+        <loc>https://spiele-zone.vercel.app/hangman</loc>
+        <lastmod>2025-07-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://spiele-zone.vercel.app/ghost-code</loc>
+        <lastmod>2025-07-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://spiele-zone.vercel.app/memory</loc>
+        <lastmod>2025-07-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://spiele-zone.vercel.app/bounce</loc>
+        <lastmod>2025-07-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.4</priority>
     </url>
 </urlset>

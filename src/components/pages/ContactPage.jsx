@@ -13,7 +13,7 @@ const ContactUs = () => {
                 <li>
                     <a
                         href="mailto:it10800222125@gmail.com"
-                        title="Reach Shadowveil Studioz via Email"
+                        title="Reach Shadowveil StudioZ via Email"
                         className="flex items-center gap-2"
                     >
                         <Mail className="w-4 h-4" />

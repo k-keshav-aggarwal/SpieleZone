@@ -83,7 +83,6 @@ const SnakeGame = () => {
             setDirection(newDir);
         }
 
-        // Prevent default scroll behavior
         if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'w', 'a', 's', 'd', 'W', 'A', 'S', 'D'].includes(e.key)) {
             e.preventDefault();
         }
@@ -157,12 +156,12 @@ const SnakeGame = () => {
             canonical.rel = 'canonical';
             document.head.appendChild(canonical);
         }
-        canonical.setAttribute('href', 'https://www.spielezone.xyz/snake');
+        canonical.setAttribute('href', 'https://spiele-zone.vercel.app/snake');
 
         return () => {
             document.title = prevTitle;
             if (descTag && prevDesc) descTag.setAttribute('content', prevDesc);
-            if (canonical) canonical.setAttribute('href', 'https://www.spielezone.xyz/');
+            if (canonical) canonical.setAttribute('href', 'https://spiele-zone.vercel.app/');
         };
     }, []);
 

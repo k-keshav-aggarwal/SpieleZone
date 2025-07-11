@@ -2,38 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://spiele-zone.vercel.app/</loc>
-    <lastmod>2025-05-18</lastmod>
+    <lastmod>2025-07-11</lastmod>
   </url>
   <url>
     <loc>https://spiele-zone.vercel.app/tzfe</loc>
-    <lastmod>2025-03-28</lastmod>
+    <lastmod>2025-07-11</lastmod>
   </url>
   <url>
     <loc>https://spiele-zone.vercel.app/Snake</loc>
-    <lastmod>2025-05-18</lastmod>
+    <lastmod>2025-07-11</lastmod>
   </url>
   <url>
     <loc>https://spiele-zone.vercel.app/HangMan</loc>
-    <lastmod>2025-03-28</lastmod>
+    <lastmod>2025-07-11</lastmod>
   </url>
   <url>
     <loc>https://spiele-zone.vercel.app/ghost-code</loc>
-    <lastmod>2025-03-28</lastmod>
+    <lastmod>2025-07-11</lastmod>
+  </url>
+  <url>
+    <loc>https://spiele-zone.vercel.app/memory</loc>
+    <lastmod>2025-07-11</lastmod>
+  </url>
+  <url>
+    <loc>https://spiele-zone.vercel.app/bounce</loc>
+    <lastmod>2025-07-11</lastmod>
   </url>
   <url>
     <loc>https://spiele-zone.vercel.app/about-us</loc>
-    <lastmod>2025-05-19</lastmod>
+    <lastmod>2025-07-11</lastmod>
   </url>
   <url>
     <loc>https://spiele-zone.vercel.app/privacy-policy</loc>
-    <lastmod>2025-05-19</lastmod>
+    <lastmod>2025-07-11</lastmod>
   </url>
   <url>
     <loc>https://spiele-zone.vercel.app/reach-us</loc>
-    <lastmod>2025-05-19</lastmod>
+    <lastmod>2025-07-11</lastmod>
   </url>
   <url>
     <loc>https://spiele-zone.vercel.app/ads.txt</loc>
-    <lastmod>2025-05-22</lastmod>
+    <lastmod>2025-07-11</lastmod>
   </url>
 </urlset>

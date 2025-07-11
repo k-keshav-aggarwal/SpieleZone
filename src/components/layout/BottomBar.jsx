@@ -40,7 +40,7 @@ const BottomBar = () => {
               <p className={styles.title}>First-Year Web Developer</p>
             </div>
             <div className={styles.socials}>
-              <a href="https://github.com/k-keshav-aggarwal" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a href="https://github.com/Satviky" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github size={24} />
               </a>
               <a href="https://linkedin.com/agg-keshav" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
@@ -55,7 +55,7 @@ const BottomBar = () => {
 
         {/* Footer Links (moved above bottom text) */}
         <div className={styles.footerLinks}>
-          <Link title="About Shadowveil Studio" to="/about-us" className={styles.footerComp}>
+          <Link title="About Shadowveil StudioZ" to="/about-us" className={styles.footerComp}>
             <Info className="w-33vw h-4" />
             About Us
           </Link>
@@ -72,7 +72,7 @@ const BottomBar = () => {
         {/* Bottom Text with Scroll Button */}
         <div className={styles.bottomText}>
           <p>
-            © {new Date().getFullYear()} Spiele-Zone By ShadowvielStudio. All rights reserved.
+            © {new Date().getFullYear()} Spiele-Zone By Shadowveil StudioZ. All rights reserved.
           </p>
           <button onClick={scrollToTop} aria-label="Back to top" className={styles.icon}>
             <ArrowUp size={20} />
