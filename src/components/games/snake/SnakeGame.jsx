@@ -20,8 +20,10 @@ const SnakeGame = () => {
     const [rated, setRated] = useState(false);
     const eatSoundRef = useRef(null);
     const touchStartRef = useRef({ x: 0, y: 0 });
+    const [isStarted, setIsStarted] = useState(false);
 
     const moveSnake = useCallback(() => {
+        if (gameOver || !isStarted) return;
         if (gameOver) return;
 
         const newSnake = [...snake];
@@ -216,28 +218,39 @@ const SnakeGame = () => {
                     <audio ref={eatSoundRef}>
                         <source src="/audios/gulp.mp3" type="audio/mpeg" />
                     </audio>
-                    <div className={styles['snake-game']}>
-                        {Array.from({ length: GRID_SIZE }, (_, rowIndex) => (
-                            <div key={rowIndex} className={styles['s-row']}>
-                                {Array.from({ length: GRID_SIZE }, (_, colIndex) => {
-                                    const isSnake = snake.some(s => s.x === colIndex && s.y === rowIndex);
-                                    const isHead = snake[0].x === colIndex && snake[0].y === rowIndex;
-                                    const isFood = food.x === colIndex && food.y === rowIndex;
-                                    let className = styles.cell;
 
-                                    if (isSnake) {
-                                        className += ' ' + (isHead
-                                            ? `${styles['snake-head']} ${styles[snake[0].direction.x === 1 ? 'right' : snake[0].direction.x === -1 ? 'left' : snake[0].direction.y === 1 ? 'down' : 'up']}`
-                                            : styles['snake-body']);
-                                    } else if (isFood) {
-                                        className += ' ' + styles.food;
-                                    }
+                    {!isStarted && !gameOver && (
+                        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                            <button onClick={() => setIsStarted(true)} className={styles.snakereset}>
+                                Start Game
+                            </button>
+                        </div>
+                    )}
+                    
+                    {isStarted && (
+                        <div className={styles['snake-game']}>
+                            {Array.from({ length: GRID_SIZE }, (_, rowIndex) => (
+                                <div key={rowIndex} className={styles['s-row']}>
+                                    {Array.from({ length: GRID_SIZE }, (_, colIndex) => {
+                                        const isSnake = snake.some(s => s.x === colIndex && s.y === rowIndex);
+                                        const isHead = snake[0].x === colIndex && snake[0].y === rowIndex;
+                                        const isFood = food.x === colIndex && food.y === rowIndex;
+                                        let className = styles.cell;
 
-                                    return <div key={colIndex} className={className}></div>;
-                                })}
-                            </div>
-                        ))}
-                    </div>
+                                        if (isSnake) {
+                                            className += ' ' + (isHead
+                                                ? `${styles['snake-head']} ${styles[snake[0].direction.x === 1 ? 'right' : snake[0].direction.x === -1 ? 'left' : snake[0].direction.y === 1 ? 'down' : 'up']}`
+                                                : styles['snake-body']);
+                                        } else if (isFood) {
+                                            className += ' ' + styles.food;
+                                        }
+
+                                        return <div key={colIndex} className={className}></div>;
+                                    })}
+                                </div>
+                            ))}
+                        </div>
+                    )}
 
                     <div className={styles['game-info']}>
                         <p>Score: {score}</p>
