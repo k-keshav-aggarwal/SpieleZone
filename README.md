@@ -5,7 +5,7 @@ A collection of retro-style browser games built with React.js by Shadowveil Stud
 ## 🚀 Live Demo
 
 Check out the live site deployed on Vercel:  
-[https://spiele-zone.vercel.app/](https://spiele-zone.vercel.app/)
+[https://spielezone.xyz/](https://spielezone.xyz/)
 
 ---
 
