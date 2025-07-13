@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     gap: 40px;
     margin-top: 20px;
+    touch-action: none;
 }
 
 .snake-game {
