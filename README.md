@@ -107,7 +107,7 @@ For any questions or suggestions about SpieleZone, feel free to reach out via Gi
 
 **Contact Shadowveil StudioZ:**
 - Email: it10800222125@gmail.com
-- Discord: [Shadowveil StudioZ Discord](https://discord.com/users/1070314800615276555)
+- Discord: [Shadowveil StudioZ Discord Server](https://discord.gg/sPZmWDDMAq)
 
 ---
 
