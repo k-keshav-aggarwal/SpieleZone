@@ -20,8 +20,10 @@ const SnakeGame = () => {
     const [rated, setRated] = useState(false);
     const eatSoundRef = useRef(null);
     const touchStartRef = useRef({ x: 0, y: 0 });
+    // const [isStarted, setIsStarted] = useState(false);
 
     const moveSnake = useCallback(() => {
+        // if (gameOver || !isStarted) return;
         if (gameOver) return;
 
         const newSnake = [...snake];
