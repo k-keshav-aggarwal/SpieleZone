@@ -218,6 +218,7 @@ const SnakeGame = () => {
                     <audio ref={eatSoundRef}>
                         <source src="/audios/gulp.mp3" type="audio/mpeg" />
                     </audio>
+
                     {!isStarted && !gameOver && (
                         <div style={{ textAlign: 'center', marginTop: '20px' }}>
                             <button onClick={() => setIsStarted(true)} className={styles.snakereset}>
@@ -225,6 +226,7 @@ const SnakeGame = () => {
                             </button>
                         </div>
                     )}
+                    
                     {isStarted && (
                         <div className={styles['snake-game']}>
                             {Array.from({ length: GRID_SIZE }, (_, rowIndex) => (

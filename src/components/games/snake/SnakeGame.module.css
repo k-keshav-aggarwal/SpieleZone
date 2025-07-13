@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     gap: 40px;
     margin-top: 20px;
-    touch-action: none;
+    
 }
 
 .snake-game {
@@ -17,6 +17,7 @@
     background-color: #e0e0e0;
     padding: 5px;
     width: fit-content;
+    touch-action: none;
 }
 
 .s-row {
@@ -108,7 +109,7 @@
   border-radius: 15px;
   z-index: 10;
 }
-.snakereset {
+/* .snakereset {
   font-size: 18px;
   margin-top: 10px;
   padding: 10px 20px;
@@ -117,7 +118,30 @@
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
+} */
+ .snakereset {
+  font-size: 18px;
+  margin-top: 10px;
+  padding: 12px 24px;
+  background: linear-gradient(to bottom, #6A5ACD, #3F00FF); /* Depth gradient */
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 
+    0 4px 0 #2A007F,
+    0 6px 10px rgba(0,0,0,0.3);
+  transform: perspective(300px) translateZ(0);
 }
+
+.snakereset:active {
+  transform: translateY(2px);
+  box-shadow: 
+    0 2px 0 #2A007F, 
+    0 3px 6px rgba(0,0,0,0.2);
+}
+
 
 @media screen and (max-width: 770px) {
     .sp-r, .sp-l {
