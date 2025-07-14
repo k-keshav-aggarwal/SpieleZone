@@ -35,7 +35,7 @@ export default function Navbar() {
         <Link title="Nostalgic Snake game" to="/Snake" onClick={() => trackGameStart('Snake')}>Snake Game</Link>
         <div className={styles.pnbdd}>
           <button className={styles.pnbbtn} onClick={() => setOpen(!open)}  >
-            More Games ▾
+            More Games
           </button>
           {open && (
             <div className={styles.pnbmenu}>
