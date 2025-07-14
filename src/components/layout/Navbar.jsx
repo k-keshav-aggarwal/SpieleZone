@@ -25,6 +25,8 @@ export default function Navbar() {
       </nav>
 
       <nav className={styles.pnavbar}>
+        <div className='dropdown'>
+        </div>
         <button onclick="myFunction()" class="dropbtn">Dropdown</button>
         <div id="myDropdown" class="dropdown-content">
           <Link title="Link to Homepage" to="/">Home</Link>
