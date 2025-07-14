@@ -1,3 +1,7 @@
+.pnavbar {
+  display: none;
+}
+
 .navbar {
   background-color: #000000;
   padding: 1rem 2rem;
@@ -8,6 +12,7 @@
   width: 100%;
   position: static;
 }
+
 
 .navbar a {
   color: #ffffff;
@@ -20,4 +25,58 @@
 
 .navbar a:hover {
   color: #38bdf8;
+}
+
+@media screen and (max-width: 770px) {
+  .navbar {
+    display: none;
+  }
+
+  .pnavbar {
+    background-color: #000000;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 99vw;
+    position: static;
+  }
+
+  .pnbdd {
+    position: relative;
+    display: inline-block;
+  }
+
+  .pnbbtn {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .pnbmenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    z-index: 1;
+    min-width: 160px;
+  }
+
+  .ddmenu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pnbddls {
+    display: block;
+    padding: 12px 16px;
+    color: #333;
+    text-decoration: none;
+  }
 }
