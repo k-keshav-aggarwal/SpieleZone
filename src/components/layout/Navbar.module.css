@@ -55,6 +55,7 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    background: linear-gradient(to bottom, #6A5ACD, #3F00FF);
   }
 
   .pnbmenu {
