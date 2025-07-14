@@ -34,9 +34,9 @@
 
   .pnavbar {
     background-color: #000000;
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     gap: 2rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     width: 99vw;
@@ -50,12 +50,15 @@
 
   .pnbbtn {
     padding: 10px 20px;
-    background-color: #3498db;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 18px;
     cursor: pointer;
     background: linear-gradient(to bottom, #6A5ACD, #3F00FF);
+    box-shadow:
+      0 4px 0 #2A007F,
+      0 6px 10px rgba(0, 0, 0, 0.3);
+    transform: perspective(300px) translateZ(0);
   }
 
   .pnbmenu {
