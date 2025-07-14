@@ -1,3 +1,7 @@
+.pnavbar{
+  display:none;
+}
+
 .navbar {
   background-color: #000000;
   padding: 1rem 2rem;
@@ -8,6 +12,7 @@
   width: 100%;
   position: static;
 }
+
 
 .navbar a {
   color: #ffffff;
@@ -20,4 +25,13 @@
 
 .navbar a:hover {
   color: #38bdf8;
+}
+
+@media screen and (max-width: 770px) {
+  .navbar{
+    display:none;
+  }
+  .pnavbar{
+    display:flex;
+  }
 }

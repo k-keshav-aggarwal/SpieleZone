@@ -15,13 +15,23 @@ function trackGameStart(gameName) {
 export default function Navbar() {
   return (
     <>
-    <nav className={styles.navbar}>
-      <Link title="Link to Homepage" to="/">Home</Link>
-      <Link title="2048 game" to="/tzfe" onClick={() => trackGameStart('2048')}>2048</Link>
-      <Link title="Nostalgic Snake game" to="/Snake" onClick={() => trackGameStart('Snake')}>Snake Game</Link>
-      <Link title="Not so Classic Hangman" to="/HangMan" onClick={() => trackGameStart('hangman')}>Hangman</Link>
-      <Link title="New and Unique typing game" to="/ghost-code">Ghost Code</Link>
-      <Link title="Simple Old School Memory Test" to="/memory">Memory Puzzle</Link>
-    </nav>
+      <nav className={styles.navbar}>
+        <Link title="Link to Homepage" to="/">Home</Link>
+        <Link title="2048 game" to="/tzfe" onClick={() => trackGameStart('2048')}>2048</Link>
+        <Link title="Nostalgic Snake game" to="/Snake" onClick={() => trackGameStart('Snake')}>Snake Game</Link>
+        <Link title="Not so Classic Hangman" to="/HangMan" onClick={() => trackGameStart('hangman')}>Hangman</Link>
+        <Link title="New and Unique typing game" to="/ghost-code">Ghost Code</Link>
+        <Link title="Simple Old School Memory Test" to="/memory" onClick={() => trackGameStart('hangman')}>Memory Puzzle</Link>
+      </nav>
+      <nav className={styles.pnavbar}>
+        <Link title="Link to Homepage" to="/">Home</Link>
+        <Link title="2048 game" to="/tzfe" onClick={() => trackGameStart('2048')}>2048</Link>
+        <Link title="Nostalgic Snake game" to="/Snake" onClick={() => trackGameStart('Snake')}>Snake Game</Link>
+        <Link title="Not so Classic Hangman" to="/HangMan" onClick={() => trackGameStart('hangman')}>Hangman</Link>
+        <Link title="New and Unique typing game" to="/ghost-code">Ghost Code</Link>
+        <Link title="Simple Old School Memory Test" to="/memory">Memory Puzzle</Link>
+      </nav>
+      
+    </>
   );
 }
