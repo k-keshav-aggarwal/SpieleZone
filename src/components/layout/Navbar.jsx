@@ -14,6 +14,7 @@ function trackGameStart(gameName) {
 
 export default function Navbar() {
   return (
+    <>
     <nav className={styles.navbar}>
       <Link title="Link to Homepage" to="/">Home</Link>
       <Link title="2048 game" to="/tzfe" onClick={() => trackGameStart('2048')}>2048</Link>
