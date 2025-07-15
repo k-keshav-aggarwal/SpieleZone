@@ -54,9 +54,9 @@
     border: none;
     border-radius: 18px;
     cursor: pointer;
-    background: linear-gradient(to bottom, #6A5ACD, #3F00FF);
+    background: linear-gradient(to bottom, #1C1B1A, #111);
     box-shadow:
-      0 4px 0 #2A007F,
+      0 4px 0 #202020,
       0 6px 10px rgba(0, 0, 0, 0.3);
     transform: perspective(300px) translateZ(0);
   }
