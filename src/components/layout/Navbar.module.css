@@ -75,13 +75,13 @@
   .ddmenu {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(to bottom, #cac1fe, #aa90f7);
+    background: linear-gradient(to bottom, #808080, #545454);
   }
 
   .pnbddls {
     display: block;
     padding: 12px 16px;
-    color: #333;
+    color: #ccc;
     text-decoration: none;
     font-weight:bold;
   }
